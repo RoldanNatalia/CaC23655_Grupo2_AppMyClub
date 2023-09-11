@@ -1,4 +1,5 @@
 # CaC23655_Grupo2_AppMyClub
+PROYECTO INTEGRADOR GRUPAL
 Grupo 02
 Integrantes:
 juantrentino@gmail.com
