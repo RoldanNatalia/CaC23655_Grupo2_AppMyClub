@@ -14,4 +14,11 @@ def actividades (request):
     <li>Patín</li>
 </ul> 
 """)
+                        
+def index(request):
+    context = {
+        
+    }
+
+    return render(request,"core/index.html",context)
 
