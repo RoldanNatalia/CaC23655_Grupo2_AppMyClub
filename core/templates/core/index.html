@@ -21,9 +21,9 @@
         &#8250;
     </button>
     <ul class="slides-container" id="slides-container">
-        <img src="{% static 'core/img/pexels-stanley-morales-3148452.jpg' %}" alt="" class="slide">
-        <img src="{% static 'core/img/pexels-stanley-morales-3148452.jpg' %}" alt="" class="slide">
-        <img src="{% static 'core/img/pexels-stanley-morales-3148452.jpg' %}" alt="" class="slide">
+        <img src="{% static 'core/img/edificio.jpeg' %}" alt="" class="slide">
+        <img src="{% static 'core/img/tenis_practica.jpg' %}" alt="" class="slide">
+        <img src="{% static 'core/img/rugby_viejo.jpg' %}" alt="" class="slide">
         <img src="{% static 'core/img/pexels-stanley-morales-3148452.jpg' %}" alt="" class="slide">
     </ul>
 </section>
@@ -33,12 +33,31 @@
     <h1 class="index_information_title">Deportes</h1>
 
     <div class="index_information_content">
-        {% for activity in menu_activities %}
+        {% for activity in menu_sports %}
             <article class="index_information_card_wrapper">
                 <h5 class="index_information_card_title">{{activity.name}}</h5>
                 <img class="index_information_card_image" src="{% static activity.url_image %}" alt="">
             </article>
         {% endfor %}
     </div>
+
+    <h2 class="see_more_button">¡Y muchos más!</h2>
+</section>
+
+<!-- Otras actividades -->
+<section class="index_information_wrapper">
+    <h1 class="index_information_title">Otras activdades</h1>
+
+    <div class="index_information_content">
+        {% for activity in menu_activities %}
+            <article class="index_information_card_wrapper">
+                <h5 class="index_information_card_title">{% filter title %} {{activity.name}} {% endfilter %}</h5>
+                
+                <img class="index_information_card_image" src="{% static activity.url_image %}" alt="">
+            </article>
+        {% endfor %}
+    </div>
+
+    <h2 class="see_more_button">¡Y muchos más!</h2>
 </section>
 {% endblock %}
