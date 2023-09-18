@@ -17,7 +17,14 @@ def actividades (request):
                         
 def index(request):
     context = {
-        
+        'menu_activities' : [
+            {'name':'Futbol','url_image':'core/img/pibe_pelota.jpg'},
+            {'name':'Voley','url_image':'core/img/volley.jpg'},
+            {'name':'Basket','url_image':'core/img/basketball.jpg'},
+            {'name':'Tenis','url_image':'core/img/tenis.jpg'},
+            {'name':'Natacion','url_image':'core/img/natacion.jpg'},
+            {'name':'Handball','url_image':'core/img/handball.jpg'}
+        ]
     }
 
     return render(request,"core/index.html",context)

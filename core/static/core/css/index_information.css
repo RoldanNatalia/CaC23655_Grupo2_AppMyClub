@@ -1,0 +1,26 @@
+.index_information_wrapper{
+    width: 100%;
+    background-color: bisque;
+}
+
+.index_information_title{
+    text-align: center;
+    padding: 10px;
+}
+
+.index_information_content{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    justify-content: space-evenly;
+}
+
+.index_information_card_wrapper{
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.index_information_card_image{
+    width: 100%;
+}
