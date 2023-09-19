@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> AppMyClub - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'core/css/styles_base.css'%}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <header>
@@ -27,8 +28,8 @@
     
     
     <main>
-        {% block content %} {% endblock %}
-        
+        {% block content %}{% endblock %}
+        {% block extra_js %}{% endblock %}
     </main>
     <footer>
         <div class="footer--contenedor--cuerpo">
