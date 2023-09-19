@@ -36,8 +36,14 @@ def actividades (request):
 </ul> 
 """)
 
+def actividad(request,actividad):
+    return HttpResponse(f"Pagina de {actividad}")
+
 def socios (request):
     return render (request,"core/socios.html")
 
 def contacto (request):
     return render (request, "core/contacto.html")
+
+def institucional (request):
+    return render (request, "core/institucional.html")
