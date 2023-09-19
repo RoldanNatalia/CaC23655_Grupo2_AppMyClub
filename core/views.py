@@ -3,14 +3,6 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def actividades(request):
-    return HttpResponse("""
-<ul>
-    <li>Futbol</li>
-    <li>Vóley</li>
-    <li>Patín</li>
-</ul> 
-""")
 
 def actividad(request,actividad):
     return HttpResponse(f"<h1>Pagina de {actividad}<h1>")
