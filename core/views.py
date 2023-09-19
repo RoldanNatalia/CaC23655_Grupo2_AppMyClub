@@ -6,7 +6,7 @@ from django.template import loader
 
 # Create your views here.
 def index (request):
-    return HttpResponse("Bienvenidos al Sistema Gestión para clubes")
+    return render(request, "core/index.html")
 
 def actividades (request):
     return HttpResponse("""
