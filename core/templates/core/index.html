@@ -1,0 +1,13 @@
+{% extends "core/base_n.html" %}
+{% block title %} Home {% endblock %}
+    
+{% block content %}
+
+    <h2>Página de inicio</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae rerum sint iure tempora nam fugit nobis. Facilis consequuntur possimus sunt fuga nesciunt velit cupiditate? Maxime eum possimus reiciendis nam sunt.</p>
+    <br>
+    
+    {% load static %}    
+    <img src="{% static 'core/imagenes/img_inicio.jpg' %}" style="max-width:100%;width:auto;height:auto alt="imagen de inicio">
+    
+{% endblock %}
