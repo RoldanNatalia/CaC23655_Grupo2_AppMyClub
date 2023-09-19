@@ -5,9 +5,6 @@ from django.template import loader
 
 
 # Create your views here.
-def index (request):
-    return render(request, "core/index.html")
-
 def actividades (request):
     return render (request, "core/actividades.html")
 
