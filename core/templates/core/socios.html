@@ -1,8 +1,30 @@
 {% extends "core/base_n.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static 'core/css/login.css' %}">{% endblock %}
 {% block title %} Socios {% endblock %}
     
 {% block content %}
 
-    <h2>Login de socios</h2>
+<h2>Exclusivo Socios del Club</h2><br>
+<div class="login">
+<form id="login" method="get" action="">
+    <label><b>Nombre de Usuario
+    </b>
+    </label>
+    <input type="text" name="Uname" id="Uname" placeholder="Username">
+    <br><br>
+    <label><b>Contraseña
+    </b>
+    </label>
+    <input type="Password" name="Pass" id="Pass" placeholder="Password">
+    <br><br>
+    <input type="button" name="log" id="log" value="Ingresar">
+    <br><br>
+    <input type="checkbox" id="check">
+    <span>Recuerdame</span>
+    <br><br>
+    <a href="#">¿Olvidó la Contraseña?</a>
+</form>
+</div>
 
 {% endblock %}

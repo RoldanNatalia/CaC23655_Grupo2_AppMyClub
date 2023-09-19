@@ -8,7 +8,7 @@ from django.template import loader
 def index(request):
     context = {
         'menu_sports' : [
-            {'name':'futbol','url_image':'core/img/pibe_pelota.jpg'},
+            {'name':'fútbol','url_image':'core/img/pibe_pelota.jpg'},
             {'name':'voley','url_image':'core/img/volley.jpg'},
             {'name':'basket','url_image':'core/img/basketball.jpg'},
             {'name':'tenis','url_image':'core/img/tenis.jpg'},
@@ -28,14 +28,14 @@ def index(request):
     return render(request,"core/index.html",context)
 
 def actividades (request):
-    return HttpResponse("""
-<ul>
-    <li>Futbol</li>
-    <li>Vóley</li>
-    <li>Patín</li>
-</ul> 
-""")
 
+    listado_actividades=['fútbol','basquet','voley','patín','taekwondo','gimnasia','pileta']
+
+    context={
+        'lista_actividades' : listado_actividades
+        }
+    
+    return render(request,"core/actividades.html",context)
 def actividad(request,actividad):
     return HttpResponse(f"Pagina de {actividad}")
 
