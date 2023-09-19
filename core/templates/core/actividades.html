@@ -1,9 +1,19 @@
-{% extends "core/base.html" %}
+{% extends "core/base_n.html" %}
+{% block title %} Actividades {% endblock %}
+    
+{% block content %}
+    <ul>
+        <li>Futbol</li>
+        <li>Vóley</li>
+        <li>Patín</li>
+    </ul> 
+{% endblock %}
+<!-- {% extends "core/base.html" %}
 {% load static %}
 {% block estilo %}<link rel="stylesheet" href="{% static 'core/css/actividades.css' %}">{% endblock %}
 {% block titulo_pagina %} Actividades {% endblock %}
 <!-- {% block title %} Actividades {% endblock %} -->
-{% block content %}
+<!-- {% block content %}
     <div id="content-cards">
         {% for actividad in lista_actividades %}
             <div class="cards">
@@ -12,4 +22,4 @@
         {%endfor%}
     </div>
     
-{% endblock %}
+{% endblock %} --> -->
