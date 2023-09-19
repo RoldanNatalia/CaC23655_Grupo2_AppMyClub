@@ -34,14 +34,14 @@
 
     <div class="index_information_content">
         {% for activity in menu_sports %}
-            <article class="index_information_card_wrapper">
-                <h5 class="index_information_card_title">{{activity.name}}</h5>
+            <a class="index_information_card_wrapper" href="{% url 'detalle_actividad' activity.name %} ">
+                <h5 class="index_information_card_title">{% filter title %} {{activity.name}} {% endfilter %}</h5>
                 <img class="index_information_card_image" src="{% static activity.url_image %}" alt="">
-            </article>
+            </a>
         {% endfor %}
     </div>
 
-    <h2 class="see_more_button">¡Y muchos más!</h2>
+    <a class="see_more_button" href="{% url 'actividades' %}">¡Y muchos más!</a>
 </section>
 
 <!-- Otras actividades -->
@@ -58,6 +58,5 @@
         {% endfor %}
     </div>
 
-    <h2 class="see_more_button">¡Y muchos más!</h2>
 </section>
 {% endblock %}

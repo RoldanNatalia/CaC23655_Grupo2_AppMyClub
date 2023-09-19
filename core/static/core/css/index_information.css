@@ -1,11 +1,13 @@
 .index_information_wrapper{
     width: 100%;
-    background-color: bisque;
+    background-color: aliceblue;
 }
 
 .index_information_title{
     text-align: center;
     padding: 10px;
+    font-family: 'Times New Roman', Times, serif, Georgia;
+    font-size:40px;
 }
 
 .index_information_content{
@@ -32,7 +34,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -100%);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: large;
     color: aliceblue;
@@ -47,6 +49,9 @@
 
 .see_more_button{
     text-align: center;
+    text-decoration: none;
+    margin: 40px 0 40px 50%;
+    transform: translateX(-50%);
     padding: 20px;
     background-color: dodgerblue;
     cursor: pointer;

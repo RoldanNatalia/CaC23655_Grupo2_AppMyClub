@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'), 
-    path('actividades/listado',views.actividades, name='AppMyClub_actividades'),
-
+    path('actividades',views.actividades, name='actividades'),
+    path('actividades/<str:actividad>', views.actividad, name="detalle_actividad")
 
 ]

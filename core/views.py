@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def actividades (request):
+def actividades(request):
     return HttpResponse("""
 <ul>
     <li>Futbol</li>
@@ -11,7 +11,10 @@ def actividades (request):
     <li>Patín</li>
 </ul> 
 """)
-                        
+
+def actividad(request,actividad):
+    return HttpResponse(f"<h1>Pagina de {actividad}<h1>")
+
 def index(request):
     context = {
         'menu_sports' : [
