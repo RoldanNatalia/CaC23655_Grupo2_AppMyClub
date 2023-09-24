@@ -36,3 +36,6 @@ def index(request):
 
 def contacto(request):
     return render(request,'core/contacto.html')
+
+def institucional(request):
+    return render(request,'core/institucional.html')
