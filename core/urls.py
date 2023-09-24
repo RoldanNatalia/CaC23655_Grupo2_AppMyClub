@@ -7,6 +7,7 @@ urlpatterns = [
     path('socios/login',views.socios, name='Socios_login'),
     path('contacto',views.contacto, name='AppMyClub_contacto'),
     path('actividades',views.actividades, name='actividades'),
-    path('actividades/<str:actividad>', views.actividad, name="detalle_actividad")
+    path('actividades/<str:actividad>', views.actividad, name="detalle_actividad"),
+    path('contacto',views.contacto,name="core-contacto")
 
 ]

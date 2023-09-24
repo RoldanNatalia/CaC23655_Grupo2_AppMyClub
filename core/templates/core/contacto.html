@@ -1,55 +1,66 @@
-{% extends "core/base_n.html" %}
-{% block title %} Contacto {% endblock %}
-    
-{% block content %}
+{% extends "core/base2.html" %}
 
-        <br>
-        <div class="container">
-            <form class="formulario-contact" onsubmit="return validarForm()" action="https://formspree.io/f/mvoybjql" method="POST">
-                <h2 class="formulario-h" >Contáctanos</h2>
-                <div class="form-group">
-                    <label class="form-group-label" for="InputName">Nombre</label>
-                    <input placeholder="Nombre" size="30" type="text" class="form-control" name="name" id="InputName" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label class="form-group-label" for="InputDNI">DNI</label>
-                    <input placeholder="DNI" size="30" type="text" class="form-control" name="dni" id="InputDNI" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label class="form-group-label" for="InputEmail1">Email</label>
-                    <input  value="@gmail.com" type="email" class="form-control" name="email" id="InputEmail1" required>
-                   
-                </div>
-                <div class="form-group">
-                    <label class="form-group-label" for="InputAsunto">Asunto</label>
-                    <input placeholder="Asunto" type="text" class="form-control" name="asunto" id="InputAsunto" required>
-                    
-                </div>
-                <div class="form-group">
-                    <label class="form-group-label" for="InputComentario">Comentarios</label>
-                    <textarea rows="5" type="textarea" name="Mensaje" class="form-control form-control-text" id="InputComentario"> </textarea>
-                </div>
-                <!--Checks-->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="terminos" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                    Acepto términos y condiciones
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="noti" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                    Deseo recibir notificaciones por email
-                    </label>
-                </div>
-                
-                
-                <button type="submit" class="btn btn-primary form-boton" value="enviar">Enviar</button>
-                <button type="reset" class="btn btn-primary form-boton" value="reiniciar">Borrar</button>
-            </form>
+{% load static %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/formulario.css' %}">
+{%endblock%}
+
+{% block content %}
+<br>
+<div class="container">
+    <form class="formulario-contact" onsubmit="return validarForm()" action="https://formspree.io/f/mvoybjql"
+        method="POST">
+        <h2 class="formulario-h">Contáctanos</h2>
+        <div class="form-group">
+            <label class="form-group-label" for="InputName">Nombre</label>
+            <input placeholder="Nombre" size="30" type="text" class="form-control" name="name" id="InputName" required>
 
         </div>
-     {% endblock %}   
-    
+        <div class="form-group">
+            <label class="form-group-label" for="InputDNI">DNI</label>
+            <input placeholder="DNI" size="30" type="text" class="form-control" name="dni" id="InputDNI" required>
+
+        </div>
+        <div class="form-group">
+            <label class="form-group-label" for="InputEmail1">Email</label>
+            <input value="@gmail.com" type="email" class="form-control" name="email" id="InputEmail1" required>
+
+        </div>
+        <div class="form-group">
+            <label class="form-group-label" for="InputAsunto">Asunto</label>
+            <input placeholder="Asunto" type="text" class="form-control" name="asunto" id="InputAsunto" required>
+
+        </div>
+        <div class="form-group">
+            <label class="form-group-label" for="InputComentario">Comentarios</label>
+            <textarea rows="5" type="textarea" name="Mensaje" class="form-control form-control-text"
+                id="InputComentario"> </textarea>
+        </div>
+        <!--Checks-->
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="terminos" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">
+                Acepto términos y condiciones
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="noti" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Deseo recibir notificaciones por email
+            </label>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary form-boton" value="enviar">Enviar</button>
+        <button type="reset" class="btn btn-primary form-boton" value="reiniciar">Borrar</button>
+    </form>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/js/contacto.js' %}"></script>
+{%endblock%}

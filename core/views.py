@@ -5,7 +5,7 @@ from django.template import loader
 
 
 # Create your views here.
-def index(request):
+def actividades(request):
     context = {
         'menu_sports' : [
             {'name':'futbol','url_image':'core/img/pibe_pelota.jpg'},
@@ -24,26 +24,15 @@ def index(request):
             {'name':'salón','url_image':'core/img/salon.jpeg'}
         ]
     }
+    return render(request,"core/actividades.html",context)
+
+def actividad(request,actividad):
+    return render(request,"core/index.html")
+
+def index(request):
+    context = {}
 
     return render(request,"core/index.html",context)
 
-def actividades (request):
-    return HttpResponse("""
-<ul>
-    <li>Futbol</li>
-    <li>Vóley</li>
-    <li>Patín</li>
-</ul> 
-""")
-
-def actividad(request,actividad):
-    return HttpResponse(f"Pagina de {actividad}")
-
-def socios (request):
-    return render (request,"core/socios.html")
-
-def contacto (request):
-    return render (request, "core/contacto.html")
-
-def institucional (request):
-    return render (request, "core/institucional.html")
+def contacto(request):
+    return render(request,'core/contacto.html')

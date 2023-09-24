@@ -13,6 +13,13 @@ body {
     overflow: hidden;
 }
 
+/* .row [class*='col-'] {
+    text-align: center;
+    background-clip: content-box;
+    min-height: 130px;
+    margin-bottom: 15px;
+  } */
+
 .slides-container {
     height: 700px;
     width: 100%;
