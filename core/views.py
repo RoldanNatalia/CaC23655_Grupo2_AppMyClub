@@ -32,3 +32,5 @@ def index(request):
 
     return render(request,"core/index.html",context)
 
+def contacto(request):
+    return render(request,'core/contacto.html')
