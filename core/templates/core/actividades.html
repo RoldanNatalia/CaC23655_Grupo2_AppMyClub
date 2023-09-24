@@ -5,6 +5,45 @@
 {% block page_title %}Actividades{% endblock %}
 
 {% block content %}
-hola
-actividades
+<!-- Deportes -->
+<div class="container mt-4">
+    <p class="h1 text-center">Deportes</p>
+
+    <div class="row">
+        {% for activity in menu_sports %}
+          <div class="col-9 col-sm-5 col-lg-4 align-items-center justify-content-sm-around justify-content-center d-flex align-items-stretch">
+            <div class="card m-2">
+                <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
+                
+                <div class="card-body text-center">
+                  <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                </div>
+              </div> 
+          </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<hr class="hr">
+
+<!-- Otras actividades -->
+<div class="container mt-4">
+  <p class="h1 text-center">Otras actividades</p>
+
+    <div class="row">
+        {% for activity in menu_activities %}
+        <div class="col-9 col-sm-5 col-lg-4 align-items-center justify-content-sm-around justify-content-center d-flex align-items-stretch">
+            <div class="card m-2">
+                <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
+                
+                <div class="card-body text-center">
+                  <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                </div>
+              </div> 
+        </div>
+        {% endfor %}
+    </div>
+
+  </div>
 {% endblock %}

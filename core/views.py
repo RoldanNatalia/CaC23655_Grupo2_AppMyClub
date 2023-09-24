@@ -4,12 +4,6 @@ from django.http import HttpResponse
 
 # Create your views here.
 def actividades(request):
-    return render(request,"core/actividades.html")
-
-def actividad(request,actividad):
-    return render(request,"core/index.html")
-
-def index(request):
     context = {
         'menu_sports' : [
             {'name':'futbol','url_image':'core/img/pibe_pelota.jpg'},
@@ -28,6 +22,13 @@ def index(request):
             {'name':'salón','url_image':'core/img/salon.jpeg'}
         ]
     }
+    return render(request,"core/actividades.html",context)
+
+def actividad(request,actividad):
+    return render(request,"core/index.html")
+
+def index(request):
+    context = {}
 
     return render(request,"core/index.html",context)
 
