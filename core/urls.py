@@ -8,5 +8,4 @@ urlpatterns = [
     path('contacto',views.contacto, name='AppMyClub_contacto'),
     path('actividades',views.actividades, name='actividades'),
     path('actividades/<str:actividad>', views.actividad, name="detalle_actividad")
-
 ]

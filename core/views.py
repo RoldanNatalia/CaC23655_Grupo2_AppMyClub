@@ -28,14 +28,8 @@ def index(request):
     return render(request,"core/index.html",context)
 
 def actividades (request):
+    return render(request,"core/actividades.html")
 
-    listado_actividades=['fútbol','basquet','voley','patín','taekwondo','gimnasia','pileta']
-
-    context={
-        'lista_actividades' : listado_actividades
-        }
-    
-    return render(request,"core/actividades.html",context)
 def actividad(request,actividad):
     return HttpResponse(f"Pagina de {actividad}")
 
