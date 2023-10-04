@@ -1,0 +1,71 @@
+.form-group-label{
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin-left:5px;
+    padding: 5px;
+}
+.form-control{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width:100%;
+    height: 27px;
+    color:#000;
+    padding-left: 8px;
+}
+.form-check{
+    font-size: 16px;
+    font-weight: 300;
+    margin-left:5px;
+    padding: 5px;
+}
+.form-boton{
+    width:98%;
+    display:block;
+    margin:3px;
+    border-radius: 5px;
+    height: 35px;
+    border: 2px solid rgb(4, 124, 176);
+    background-color:transparent;
+    font-weight: 600;
+    color:rgb(30, 29, 29);
+
+}
+.form-boton:hover{
+    color:#fff;
+    background-color: rgb(4, 124, 176);
+
+}
+
+.formulario-contact{
+    border:2px solid rgb(4, 124, 176);
+    padding:20px 40px;
+
+    border-radius: 15px;
+    margin:40px;
+}
+.formulario-h{
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform:uppercase;
+    
+}
+.formulario-h::after{
+    content: " 🤙🏽";
+    font-size: 20px;
+}
+.formulario-h::before{
+    content: "🤙🏽 ";
+    font-size: 20px;
+}
+
+.form-control::placeholder{
+    color:#555;
+}
+.form-control-text{
+    height: 80px;
+    resize:none;
+}
