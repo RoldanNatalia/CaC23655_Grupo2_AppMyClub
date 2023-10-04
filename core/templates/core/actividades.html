@@ -1,25 +1,50 @@
-{% extends "core/base_n.html" %}
-{% block title %} Actividades {% endblock %}
-    
-{% block content %}
-    <ul>
-        <li>Futbol</li>
-        <li>Vóley</li>
-        <li>Patín</li>
-    </ul> 
-{% endblock %}
-<!-- {% extends "core/base.html" %}
+{% extends "core/base.html" %}
+
 {% load static %}
-{% block estilo %}<link rel="stylesheet" href="{% static 'core/css/actividades.css' %}">{% endblock %}
-{% block titulo_pagina %} Actividades {% endblock %}
-<!-- {% block title %} Actividades {% endblock %} -->
-<!-- {% block content %}
-    <div id="content-cards">
-        {% for actividad in lista_actividades %}
-            <div class="cards">
-                <a href="http://127.0.0.1:8000/AppMyClub/detalle_actividad/{{actividad}}"><h2>{{ actividad | title}}</h2></a>
-            </div>
-        {%endfor%}
+
+{% block page_title %}Actividades{% endblock %}
+
+{% block content %}
+<!-- Deportes -->
+<div class="container mt-4">
+    <p class="h1 text-center">Deportes</p>
+
+    <div class="row">
+        {% for activity in menu_sports %}
+          <div class="col-9 col-sm-5 col-lg-4 align-items-center justify-content-sm-around justify-content-center d-flex align-items-stretch">
+            <div class="card m-2">
+                <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
+                
+                <div class="card-body text-center">
+                  <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                </div>
+              </div> 
+          </div>
+
+        {% endfor %}
     </div>
-    
-{% endblock %} --> -->
+</div>
+
+<hr class="hr">
+
+<!-- Otras actividades -->
+<div class="container mt-4">
+  <p class="h1 text-center">Otras actividades</p>
+
+    <div class="row">
+        {% for activity in menu_activities %}
+        <div class="col-9 col-sm-5 col-lg-4 align-items-center justify-content-sm-around justify-content-center d-flex align-items-stretch">
+            <div class="card m-2">
+                <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
+                
+                <div class="card-body text-center">
+                  <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                </div>
+              </div> 
+        </div>
+        {% endfor %}
+    </div>
+
+  </div>
+{% endblock %}
+

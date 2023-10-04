@@ -1,11 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
+from django.forms import forms
+from .forms import LoginForm
+from django.contrib import messages
+from django.urls import reverse
+
  
 
 
 # Create your views here.
-def index(request):
+def actividades(request):
     context = {
         'menu_sports' : [
             {'name':'fútbol','url_image':'core/img/pibe_pelota.jpg'},
@@ -24,20 +29,41 @@ def index(request):
             {'name':'salón','url_image':'core/img/salon.jpeg'}
         ]
     }
+    return render(request,"core/actividades.html",context)
+
+def actividad(request,actividad):
+    return render(request,"core/index.html")
+
+def index(request):
+    context = {}
 
     return render(request,"core/index.html",context)
 
-def actividades (request):
-    return render(request,"core/actividades.html")
+def contacto(request):
+    return render(request,'core/contacto.html')
 
-def actividad(request,actividad):
-    return HttpResponse(f"Pagina de {actividad}")
+def institucional(request):
+    return render(request,'core/institucional.html')
 
-def socios (request):
-    return render (request,"core/socios.html")
+def socios(request):
+    if request.method == "POST":
 
-def contacto (request):
-    return render (request, "core/contacto.html")
+        login_form = LoginForm(request.POST)
 
-def institucional (request):
-    return render (request, "core/institucional.html")
+        
+        if login_form.is_valid():
+
+            messages.info(request, "Ha iniciado sesión correctamente")
+            return redirect(reverse("portal_socios"))
+
+    else: 
+        login_form = LoginForm()
+
+    context = {
+        'ingreso_socios': login_form
+    }
+
+    return render(request, "core/socios.html", context)
+
+def portal_socios(request):
+    return render(request,'core/portal_socios.html')
