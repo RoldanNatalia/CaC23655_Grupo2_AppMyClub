@@ -4,10 +4,11 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'), 
     path('institucional',views.institucional, name='AppMyClub_institucional'),
-    # path('socios/login',views.socios, name='Socios_login'),
+    path('socios/login',views.socios, name='Socios_login'),
     path('contacto',views.contacto, name='AppMyClub_contacto'),
-    path('actividades',views.actividades, name='actividades'),
+    path('actividades/',views.actividades, name='actividades'),
     path('actividades/<str:actividad>', views.actividad, name="detalle_actividad"),
-    path('contacto',views.contacto,name="core-contacto")
+    path('contacto',views.contacto,name="core-contacto"),
+    path('portal-socios',views.portal_socios,name="portal_socios"),
 
 ]
