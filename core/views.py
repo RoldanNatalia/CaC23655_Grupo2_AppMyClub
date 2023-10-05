@@ -14,7 +14,7 @@ from .models import Persona
 def actividades(request):
     context = {
         'menu_sports' : [
-            {'name':'futbol','url_image':'core/img/pibe_pelota.jpg'},
+            {'name':'fútbol','url_image':'core/img/pibe_pelota.jpg'},
             {'name':'voley','url_image':'core/img/volley.jpg'},
             {'name':'basket','url_image':'core/img/basketball.jpg'},
             {'name':'tenis','url_image':'core/img/tenis.jpg'},
