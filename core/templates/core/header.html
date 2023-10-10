@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-light p-3 sticky-top position-sm-absolute">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'index' %}">
         <img src="{% static 'core/img/escudo.png' %}" width="30" height="30" alt=""> SuperClub
       </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,16 +20,16 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
+            Socios
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="{% url 'nuevo_socio' %}">Quiero asociarme</a>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
       </ul>
-      <a href="" class="btn btn-primary ml-auto">PORTAL SOCIOS</a>
+      <a href="{% url 'Socios_login' %}" class="btn btn-primary ml-auto">PORTAL SOCIOS</a>
     </div>
     
   </nav>

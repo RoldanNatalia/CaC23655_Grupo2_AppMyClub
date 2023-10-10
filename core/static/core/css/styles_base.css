@@ -44,7 +44,7 @@ main::-webkit-scrollbar {
     background:#000;
   }
   main::-webkit-scrollbar-thumb{
-    background: rgb(148, 152, 188)/*#258;*/
+    background: rgb(148, 152, 188);/*#258;*/
     border-radius: 5px;
   }
 /*********************************/

@@ -1,16 +1,29 @@
 {% load static %}
 
-<div class="bg-dark p-3">
-    <p class="navbar-brand p-3">
+<div class="bg-dark p-3 ">
+    <div class="row justify-content-between">
+      <p class="navbar-brand p-3">
         <img src="{% static 'core/img/escudo.png' %}" width="30" height="30" alt=""> SuperClub
-    </p>
+      </p>
+
+      <div class="row justify-content-between p-2 m-2">
+        <h4>Siguenos en</h4>
+        <span>
+        <a href="">
+          <img class="border border-white rounded-circle p-1 ml-2" src="{% static 'core/img/icons/insta2.png' %}" style="width: 30px;">
+        </a>
+        <a href="">
+          <img class="border border-white rounded-circle p-1 ml-2" src="{% static 'core/img/icons/insta2.png' %}" style="width: 30px;">
+        </a>
+        <a href="">
+          <img class="border border-white rounded-circle p-1 ml-2" src="{% static 'core/img/icons/insta2.png' %}" style="width: 30px;">
+        </a>
+        </span>
+      </div>
+    
+    </div>
     <nav class="navbar navbar-expand navbar-dark">
-        <!-- <a class="navbar-brand" href="#">
-            <img src="{% static 'core/img/escudo.png' %}" width="30" height="30" alt=""> SuperClub
-        </a> -->
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
+        
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
           <div class="navbar-nav row justify-content-center">
             <a class="nav-item nav-link active mx-4" href="{% url 'index' %}">Inicio     <span class="sr-only">(current)</span></a>

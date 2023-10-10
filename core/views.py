@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
+from django.urls import reverse
+from .forms import SocioForm, LoginForm 
+from .models import Persona
+
+
  
 
 
@@ -8,7 +14,7 @@ from django.template import loader
 def actividades(request):
     context = {
         'menu_sports' : [
-            {'name':'futbol','url_image':'core/img/pibe_pelota.jpg'},
+            {'name':'fútbol','url_image':'core/img/pibe_pelota.jpg'},
             {'name':'voley','url_image':'core/img/volley.jpg'},
             {'name':'basket','url_image':'core/img/basketball.jpg'},
             {'name':'tenis','url_image':'core/img/tenis.jpg'},
@@ -39,3 +45,62 @@ def contacto(request):
 
 def institucional(request):
     return render(request,'core/institucional.html')
+
+def socios(request):
+
+    if request.method == "POST":
+
+        login_form = LoginForm(request.POST)
+
+        
+        if login_form.is_valid():
+
+            messages.info(request, "Ha iniciado sesión correctamente")
+            return redirect(reverse('portal_socios'))
+
+    else: 
+        login_form = LoginForm()
+
+    context = {
+        'ingreso_socios': login_form
+    }
+
+    return render (request, 'core/socios.html',context)
+
+def socio_nuevo (request):
+
+    if request.method == "POST":
+        # Instanciamos un formulario con datos
+        formulario = SocioForm(request.POST)
+        # Validarlo
+        if formulario.is_valid():
+            # Dar de alta la info
+
+            messages.info(request, "Datos enviados con éxito")
+            #ingreso a BBDD
+            #nombre=formulario.cleaned_data['nombre']
+            #apellido=formulario.cleaned_data['apellido']
+            #dni=formulario.cleaned_data['dni']
+            #email=formulario.cleaned_data['email']
+            #direccion=formulario.cleaned_data['direccion']
+            #p1 = Persona(nombre, apellido, dni, email, direccion)
+            #p1=Persona(nombre="Jose", apellido="Diaz", dni="12345678", email="josed@gmail.com", direccion="Arias 1234")
+            #p1.save()
+            
+
+            return redirect(reverse("index"))
+        
+    
+    else: #GET
+
+        formulario= SocioForm()
+    
+    context={
+        'alta_socio': formulario
+
+    }
+
+    return render (request, 'core/socio_nuevo.html',context)
+
+def portal_socios(request):
+    return render(request,'core/portal_socios.html')
