@@ -75,21 +75,13 @@ WSGI_APPLICATION = 'AppMyClub.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'prueba',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'isabel1308',
-
-        'HOST': '127.0.0.1',
-
-        'PORT': '5432',
-
+   "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "cac_2023_MyClub",
+        "USER": "postgres",
+        "PASSWORD": "1234",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 
 }
