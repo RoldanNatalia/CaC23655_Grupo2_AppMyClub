@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
 from .forms import SocioForm, LoginForm 
-from .models import Persona
+from .models import *
 
 
  
@@ -68,7 +68,7 @@ def socios(request):
     return render (request, 'core/socios.html',context)
 
 def socio_nuevo (request):
-
+    print("en vista")
     if request.method == "POST":
         # Instanciamos un formulario con datos
         formulario = SocioForm(request.POST)
@@ -76,17 +76,22 @@ def socio_nuevo (request):
         if formulario.is_valid():
             # Dar de alta la info
 
-            messages.info(request, "Datos enviados con éxito")
             #ingreso a BBDD
-            #nombre=formulario.cleaned_data['nombre']
-            #apellido=formulario.cleaned_data['apellido']
-            #dni=formulario.cleaned_data['dni']
-            #email=formulario.cleaned_data['email']
-            #direccion=formulario.cleaned_data['direccion']
-            #p1 = Persona(nombre, apellido, dni, email, direccion)
-            #p1=Persona(nombre="Jose", apellido="Diaz", dni="12345678", email="josed@gmail.com", direccion="Arias 1234")
-            #p1.save()
-            
+            f_nombre=formulario.cleaned_data['nombre']
+            f_apellido=formulario.cleaned_data['apellido']
+            f_dni=formulario.cleaned_data['dni']
+            f_email=formulario.cleaned_data['email']
+            f_direccion=formulario.cleaned_data['direccion']
+
+
+            try:
+                socio = Socio(numero = 1, nombre=f_nombre,apellido=f_apellido,dni=f_dni,email=f_email,direccion=f_direccion)
+                socio.save()
+            except:
+                messages.info(request, "Error al crear el nuevo socio")
+            else:
+                messages.info(request, "Datos guardados con exito")
+
 
             return redirect(reverse("index"))
         
