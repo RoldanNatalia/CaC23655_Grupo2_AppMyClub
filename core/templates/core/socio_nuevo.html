@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+
+{% block title %} Nuevo socio {% endblock %}
+
+{% block content %}
+
+<h2>Socio nuevo</h2>
+<br>
+<h4>Por favor, complete los siguientes datos:</h4>
+<br>
+    <form action="{% url 'nuevo_socio' %}" method="post">
+        {% csrf_token %}
+        {{ alta_socio.as_p }}
+        <input type="submit">
+
+    </form>
+
+
+{% endblock %}
