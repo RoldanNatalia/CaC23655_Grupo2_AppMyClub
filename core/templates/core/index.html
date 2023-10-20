@@ -14,8 +14,10 @@
 {%endblock%}
 
 {% block content %}
-<!-- Carrusel -->
-<div id="carouselExampleControls" class="carousel slide p-3 bg-dark" data-ride="carousel">
+
+<!-- ------------------------- carrusel ------------------------- -->
+
+<div id="carouselExampleControls" class="carousel slide p-3 bg-dark mb-4" data-ride="carousel">
   <div class="carousel-inner rounded text-center">
     <div class="carousel-item active">
       <img class="d-block mx-auto " style="max-height: 75vh;"
@@ -40,58 +42,80 @@
   </a>
 </div>
 
+<!-- ------------------------- anuncios ------------------------- -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 text-center">
+      <img class="rounded-circle" src="{% static 'core/img/escudo.png' %}" style="width: 140px; height: 140px;">
+      <h2>Encabezado</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cumque amet quidem vero alias voluptatum placeat culpa, adipisci illo iste, nemo perferendis facere inventore aspernatur quibusdam velit incidunt, asperiores dolore!
+      </p>
+      <p>
+        <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
+      </p>
+    </div>
+    <div class="col-lg-4 text-center">
+      <img class="rounded-circle" src="{% static 'core/img/escudo.png' %}" style="width: 140px; height: 140px;">
+      <h2>Encabezado</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cumque amet quidem vero alias voluptatum placeat culpa, adipisci illo iste, nemo perferendis facere inventore aspernatur quibusdam velit incidunt, asperiores dolore!
+      </p>
+      <p>
+        <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
+      </p>
+    </div>
+    <div class="col-lg-4 text-center">
+      <img class="rounded-circle" src="{% static 'core/img/escudo.png' %}" style="width: 140px; height: 140px;">
+      <h2>Encabezado</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima cumque amet quidem vero alias voluptatum placeat culpa, adipisci illo iste, nemo perferendis facere inventore aspernatur quibusdam velit incidunt, asperiores dolore!
+      </p>
+      <p>
+        <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
 <div class="container mt-4">
-  <div class="card">
-    <div class="card-header">
-      Deportes
-    </div>
-    
-    <div class="row">
-      <img class="card-img col-sm-3" src="{% static 'core/img/ejemplo.jpg' %}" alt="Card image cap">
-      
-      <div class="card-body col-sm-9">
-        <h5 class="card-title">Podio en hokey masculino</h5>
-        <p class="card-text">Nuestros jugadores se hacen con el segundo lugar en el metropolitano</p>
-        <a href="#" class="btn btn-secondary">Leer más</a>
+  <hr class="hr mt-5 mb-5">
+
+  <div class="row featurette">
+    <div class="col-md-7 d-flex align-items-sm-center">
+      <div>
+        <h2 class="featurette-heading">Titulo de la seccion</h2>
+
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi at, dolorem harum impedit ullam, minima nisi laboriosam fuga quaerat molestias voluptas sed. Commodi, necessitatibus iste eaque tenetur laboriosam dolorum. Excepturi.</p>
       </div>
+
     </div>
 
-    <div class="card-footer text-muted">
-      2 days ago
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid mx-auto" src="{% static 'core/img/volley.jpg' %}" alt="" style="width: 500px; height: 500px;">
     </div>
   </div>
 
-  <div class="card text-center">
-    <div class="card-header">
-      Featured
+  <hr class="hr mt-5 mb-5">
+
+  <div class="row featurette">
+    <div class="col-md-5">
+      <img class="featurette-image img-fluid mx-auto" src="{% static 'core/img/volley.jpg' %}" alt="" style="width: 500px; height: 500px;">
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+
+    <div class="col-md-7 d-flex align-items-sm-center">
+      <div>
+        <h2 class="featurette-heading">Titulo de la seccion</h2>
+
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi at, dolorem harum impedit ullam, minima nisi laboriosam fuga quaerat molestias voluptas sed. Commodi, necessitatibus iste eaque tenetur laboriosam dolorum. Excepturi.</p>
+      </div>
+
     </div>
-    <div class="card-footer text-muted">
-      2 days ago
-    </div>
+
   </div>
+
+  <hr class="hr">
 </div>
 {% endblock %}
