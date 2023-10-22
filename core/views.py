@@ -77,15 +77,7 @@ def socio_nuevo (request):
             # Dar de alta la info
 
             messages.info(request, "Datos enviados con éxito")
-            #ingreso a BBDD
-            #nombre=formulario.cleaned_data['nombre']
-            #apellido=formulario.cleaned_data['apellido']
-            #dni=formulario.cleaned_data['dni']
-            #email=formulario.cleaned_data['email']
-            #direccion=formulario.cleaned_data['direccion']
-            #p1 = Persona(nombre, apellido, dni, email, direccion)
-            #p1=Persona(nombre="Jose", apellido="Diaz", dni="12345678", email="josed@gmail.com", direccion="Arias 1234")
-            #p1.save()
+        
             
 
             return redirect(reverse("index"))
