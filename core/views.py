@@ -3,8 +3,10 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
-from .forms import SocioForm, LoginForm 
-from .models import Persona
+from .forms import SocioForm, LoginForm, Actividad
+from .models import *
+from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 
 
  
@@ -68,7 +70,7 @@ def socios(request):
     return render (request, 'core/socios.html',context)
 
 def socio_nuevo (request):
-
+    print("en vista")
     if request.method == "POST":
         # Instanciamos un formulario con datos
         formulario = SocioForm(request.POST)
@@ -76,9 +78,22 @@ def socio_nuevo (request):
         if formulario.is_valid():
             # Dar de alta la info
 
-            messages.info(request, "Datos enviados con éxito")
-        
-            
+            #ingreso a BBDD
+            f_nombre=formulario.cleaned_data['nombre']
+            f_apellido=formulario.cleaned_data['apellido']
+            f_dni=formulario.cleaned_data['dni']
+            f_email=formulario.cleaned_data['email']
+            f_direccion=formulario.cleaned_data['direccion']
+
+
+            try:
+                socio = Socio(numero = 1, nombre=f_nombre,apellido=f_apellido,dni=f_dni,email=f_email,direccion=f_direccion)
+                socio.save()
+            except:
+                messages.info(request, "Error al crear el nuevo socio")
+            else:
+                messages.info(request, "Datos guardados con exito")
+
 
             return redirect(reverse("index"))
         
@@ -96,3 +111,16 @@ def socio_nuevo (request):
 
 def portal_socios(request):
     return render(request,'core/portal_socios.html')
+
+class AltaActividad(CreateView):
+    model = Actividad
+    template_name = 'core/alta_actividad.html'
+    success_url = 'listado_actividades'
+    # form_class = AltaDocenteModelForm
+    fields = '__all__'
+
+class ListaActividades(ListView):
+    model = Actividad
+    context_object_name = 'listado_actividades'
+    template_name = 'core/listado_actividades.html'
+    

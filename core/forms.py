@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django import forms
 from django.forms.widgets import NumberInput
 import re
+from .models import Actividad
 
 class SocioForm(forms.Form):
     nombre= forms.CharField(label="Nombre:", required=True)
@@ -53,4 +54,13 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("La contraseña debe tener exactamente 6 caracteres.")
 
         return contraseña
+    
+class Actividad(forms.ModelForm):
+    class Meta:
+        model: Actividad
+        fields = '__all__'
+
+    
+
+
 
