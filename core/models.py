@@ -52,6 +52,8 @@ class Curso(models.Model):
     def clean_horario(self):
         if not(0 < self.cleaned_data['desde'] < 24 and 0 < self.cleaned_data['hasta'] < 24 ):
             raise ValidationError("Fechas incorrectas no cumplen formato de 24hs")
+        if not(self.cleaned_data['desde'] < self.cleaned_data['hasta']):
+            raise ValidationError("El inicio debe ser menor que el final de la clase")
 
         return (self.cleaned_data['desde'],self.cleaned_data['hasta'])
     
