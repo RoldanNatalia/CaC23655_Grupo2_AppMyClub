@@ -1,14 +1,34 @@
-{% extends "core/base.html" %}
+{% extends "core/base_socio.html" %}
 
 {% block title %} Portal de Socios {% endblock %}
 
 {% block content %}
 
-   <h1>Portal de Socios</h1>
-   <br>
-   <br>
-   <h2> </h2>
+<div class="main-container d-flex">
+   <div class="sidebar bg-warning" id="side_nav" style="height: 100vh;">
+      <div class="header-box">
+         <h1 class="navbar-brand fs-4 "><span class="bg-white text-dark rounded shadow px-2 me-2">Holas</span><span class="text-white">Titulo</span></h1>
+         <button class="btn d-mb-none d-block close-btn px-1 py-0 text-white"> <i class="fas fa-stream"></i> </button>
+      </div>
 
 
+      <!-- Hover added -->
+      <div class="list-group d-flex justify-content-sm-around align-items-sm-center h-75">
+         <button type="button" onclick="location.href='{% url 'info_socio' %}'" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-info-circle"></i><span class="m-2">INFORMACION</span></button>
+         <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-basketball-ball"></i><span class="m-2">MIS ACTIVIDADES</span></button>
+         <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-money-bill-wave"></i><span class="m-2">PAGOS</span></button>
+         <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-calendar-day"></i><span class="m-2">RESERVAS</span></button>
+         <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-exclamation-triangle"></i><span class="m-2">RECLAMOS</span></button>
+         <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-user-circle"></i><span class="m-2">MI CUENTA</span></button>
+
+      </div>
+      
+
+   </div>
+
+   <div class="content">
+
+   </div>
+</div>
 
 {% endblock %}

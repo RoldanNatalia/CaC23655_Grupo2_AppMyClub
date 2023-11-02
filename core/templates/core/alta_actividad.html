@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title %} Nueva actividad {% endblock %}
+
+{% block content %}
+
+<h2>Alta de actividad</h2>
+<br>
+<h4>Detalles de actividad:</h4>
+<br>
+    <form method="post" action="{% url 'alta_actividad' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+
+
+{% endblock %}
