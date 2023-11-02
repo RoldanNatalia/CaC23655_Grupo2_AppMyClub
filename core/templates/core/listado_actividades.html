@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+
+{% block title %} Lista de actividades{% endblock %}
+
+{% block content %}
+
+<h2>Lista de actividades</h2>
+
+<ul>
+    {% for nombre_actividad in listado_actividades %}
+        <li>
+            <p>{{ nombre_actividad.id }}</p>
+            <p>{{ nombre_actividad.nombre | title}}</p>
+          
+        </li>
+    {%endfor%}
+</ul>
+
+
+{% endblock %}

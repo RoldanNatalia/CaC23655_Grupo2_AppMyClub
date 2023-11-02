@@ -11,5 +11,6 @@ urlpatterns = [
     path('socios/nuevo',views.socio_nuevo,name="nuevo_socio"),
     path('socios/login',views.socios, name='Socios_login'),
     path('Portal-socios',views.portal_socios,name="portal_socios"),
-    
+    path('alta_actividad',views.AltaActividad.as_view(),name="alta_actividad"),
+    path('listado_actividades',views.ListaActividades.as_view(),name="lista_actividad")
 ]
