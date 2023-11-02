@@ -119,6 +119,10 @@ def socio_info(request):
                     ]}
     return render (request,'core/socio_info.html', context)
 
+def socio_reclamo(request):
+    context={}
+    return render (request,'core/socio_reclamo.html', context)
+
 def portal_socios(request):
     return render(request,'core/portal_socios.html')
 

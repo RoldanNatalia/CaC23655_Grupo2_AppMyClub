@@ -8,29 +8,34 @@
 <div class="main-container d-flex">
     <div class="sidebar bg-warning" id="side_nav" style="height: 100vh;">
        <div class="header-box">
-          <h1 class="navbar-brand fs-4 "><span class="bg-white text-dark rounded shadow px-2 me-2">Holas</span><span class="text-white">Titulo</span></h1>
-          <button class="btn d-mb-none d-block close-btn px-1 py-0 text-white"> <i class="fas fa-stream"></i> </button>
+          <h1 class="navbar-brand fs-4 "><span class="bg-white text-dark rounded shadow px-2 me-2">Hola!</span><span class="text-white"> </span></h1>
+          <!--button class="btn d-mb-none d-block close-btn px-1 py-0 text-white"> <i class="fas fa-stream"></i> </button-->
        </div>
- 
  
        <!-- Hover added -->
-       <div class="list-group d-flex justify-content-sm-around align-items-sm-center h-75">
-          <button type="button" onclick="location.href='{% url 'info_socio' %}'" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-info-circle"></i><span class="m-2">INFORMACION</span></button>
-          <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-basketball-ball"></i><span class="m-2">MIS ACTIVIDADES</span></button>
-          <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-money-bill-wave"></i><span class="m-2">PAGOS</span></button>
-          <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-calendar-day"></i><span class="m-2">RESERVAS</span></button>
-          <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-exclamation-triangle"></i><span class="m-2">RECLAMOS</span></button>
-          <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-user-circle"></i><span class="m-2">MI CUENTA</span></button>
- 
-       </div>
+      <div class="list-group d-flex justify-content-sm-around align-items-sm-center h-75" style="height: 100vh;">
+        <div>
+           <button type="button" onclick="location.href='{% url 'info_socio' %}'" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-info-circle"></i><span class="m-2">INFORMACION</span></button>
+           <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-basketball-ball"></i><span class="m-2">MIS ACTIVIDADES</span></button>
+           <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-money-bill-wave"></i><span class="m-2">PAGOS</span></button>
+           <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-calendar-day"></i><span class="m-2">RESERVAS</span></button>
+        </div>
+
+        <div>
+           <button type="button" onclick="location.href='{% url 'reclamo_socio' %}'" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-exclamation-triangle"></i><span class="m-2">RECLAMOS</span></button>
+           <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-user-circle"></i><span class="m-2">MI CUENTA</span></button>
+        </div>
+
+     </div>
        
  
+    
     </div>
- 
     <div class="content">
-        <h2>NOTICIAS</h2>
-        <br>
-        <p>📌<b>ATENCION:</b> Domingo 19 de Noviembre el club permanecerá cerrado.</p>
+        <!--div class="navbar navbar-expand-lg navbar-light p-3 sticky-top position-sm-absolute"-->
+            <h2>NOTICIAS</h2>
+            <br>
+            <p>📌<b>ATENCION:</b> Domingo 19 de Noviembre el club permanecerá cerrado.</p>
             <!-- Noticias -->
             <div class="container mt-4">
                 <p class="h1 text-center">Destacadas</p>
@@ -54,9 +59,9 @@
 
                     
                 </div>
-            
+            </div>
             <hr class="hr">
-            
+        </div>    
     </div>
-        
+</div>
 {% endblock %}
