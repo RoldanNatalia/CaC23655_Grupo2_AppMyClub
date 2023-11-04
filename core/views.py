@@ -3,8 +3,10 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
-from .forms import SocioForm, LoginForm 
+from .forms import SocioForm, LoginForm, Actividad
 from .models import *
+from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 
 
  
@@ -109,3 +111,16 @@ def socio_nuevo (request):
 
 def portal_socios(request):
     return render(request,'core/portal_socios.html')
+
+class AltaActividad(CreateView):
+    model = Actividad
+    template_name = 'core/alta_actividad.html'
+    success_url = 'listado_actividades'
+    # form_class = AltaDocenteModelForm
+    fields = '__all__'
+
+class ListaActividades(ListView):
+    model = Actividad
+    context_object_name = 'listado_actividades'
+    template_name = 'core/listado_actividades.html'
+    
