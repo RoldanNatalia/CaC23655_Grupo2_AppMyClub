@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django import forms
 from django.forms.widgets import NumberInput
 import re
-from .models import Actividad
+from .models import *
 
 class SocioForm(forms.Form):
     nombre= forms.CharField(label="Nombre:", required=True)
@@ -35,14 +35,19 @@ class SocioForm(forms.Form):
 
 
 class ReservaForm(forms.Form):
-    predio = forms.SelectMultiple(choices=[(1,"prueba"),(2,"otraprueba")])
-    fecha = forms.SelectDateWidget()
-    desde_hora = forms.SelectMultiple(choices=[(8,8),(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),])
-    desde_minutos = forms.SelectMultiple(choices=[(0,"00"),(0.25,"15"),(0.5,"30"),(0.75,"45")])
+    predios = []
+    for predio in Predio.objects.all():
+        predios.append((predio,predio.nombre))
 
+    predio = forms.ChoiceField(choices=predios)
+    fecha = forms.DateField(widget=forms.SelectDateWidget())
+    desde_hora = forms.ChoiceField(label="Desde", choices=[(8,8),(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(17,17),(18,18),(19,19),(20,20)])
+    desde_minutos = forms.ChoiceField(label=":",choices=[(0,"00"),(0.25,"15"),(0.5,"30"),(0.75,"45")])
+
+    ejemplo = forms.DateField()
     
-
-
+    def clean_horario():
+        pass
 class LoginForm(forms.Form):
     nombre = forms.CharField(label="Nombre de usuario:", required=True)
     contraseña = forms.CharField(label="Contraseña",widget=forms.PasswordInput, required=False, max_length=6)
@@ -68,6 +73,9 @@ class Actividad(forms.ModelForm):
     class Meta:
         model: Actividad
         fields = '__all__'
+
+class NuevoPredioForm(forms.Form):
+    nombre = forms.CharField(label="nombre del predio:")
 
     
 

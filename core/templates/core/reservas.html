@@ -4,14 +4,20 @@
 
 {% block content %}
 
-<h2>Alta de actividad</h2>
-    <br>
-<h4>Detalles de actividad:</h4>
+<h2>Reservas</h2>
+<br>
+
+    {% for reserva in lista_reservas %}
+        <h1>{{ reserva.nombre }}</h1>
+        <br>
+    {% endfor %}
+
+<h1>Nueva Reserva</h1>
     <br>
 
 <form action="{% url 'reservas_socio' %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ formulario.as_p }}
     <input type="submit">
 </form>
 

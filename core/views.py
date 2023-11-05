@@ -114,15 +114,15 @@ def portal_socios(request):
 
 class AltaActividad(CreateView):
     model = Actividad
-    template_name = 'core/alta_actividad.html'
-    success_url = 'listado_actividades'
+    template_name = 'core/alta_formulario.html'
+    success_url = 'index'
     # form_class = AltaDocenteModelForm
     fields = '__all__'
 
 class AltaPredio(CreateView):
     model = Predio
-    template_name = 'core/alta_actividad.html'
-    success_url = 'index'
+    form_class = NuevoPredioForm
+    template_name = 'core/alta_formulario.html'
 
     fields = '__all__'
 
@@ -131,23 +131,26 @@ class ListaActividades(ListView):
     context_object_name = 'listado_actividades'
     template_name = 'core/listado_actividades.html'
 
-def reservas(request):
-    if request.method == "POST":
+# def reservas(request):
+#     if request.method == "POST":
 
-        reserva_form = ReservaForm(request.POST)
+#         reserva_form = ReservaForm(request.POST)
 
         
-        if reserva_form.is_valid():
+#         if reserva_form.is_valid():
 
-            messages.info(request, "Reserva realizada con éxito")
-            return redirect(reverse('portal_socios'))
+#             messages.info(request, "Reserva realizada con éxito")
+#             return redirect(reverse('portal_socios'))
 
-    else: 
-        reserva_form = ReservaForm()
+#     else: 
+#         reserva_form = ReservaForm()
 
-    context = {
-        'lista_reservas': Reserva.objects.all(),
-        'form': reserva_form
-    }
+
+#     context = {
+#         'lista_reservas': Socio.objects.all(),
+#         'formulario': reserva_form
+#     }
+
+#     return render(request, 'core/reservas.html',context)
 
     
