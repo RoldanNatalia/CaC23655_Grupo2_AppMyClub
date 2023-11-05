@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
-from .forms import SocioForm, LoginForm, Actividad
+from .forms import *
 from .models import *
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
@@ -119,8 +119,35 @@ class AltaActividad(CreateView):
     # form_class = AltaDocenteModelForm
     fields = '__all__'
 
+class AltaPredio(CreateView):
+    model = Predio
+    template_name = 'core/alta_actividad.html'
+    success_url = 'index'
+
+    fields = '__all__'
+
 class ListaActividades(ListView):
     model = Actividad
     context_object_name = 'listado_actividades'
     template_name = 'core/listado_actividades.html'
+
+def reservas(request):
+    if request.method == "POST":
+
+        reserva_form = ReservaForm(request.POST)
+
+        
+        if reserva_form.is_valid():
+
+            messages.info(request, "Reserva realizada con éxito")
+            return redirect(reverse('portal_socios'))
+
+    else: 
+        reserva_form = ReservaForm()
+
+    context = {
+        'lista_reservas': Reserva.objects.all(),
+        'form': reserva_form
+    }
+
     

@@ -31,7 +31,16 @@ class SocioForm(forms.Form):
             raise forms.ValidationError('DNI erróneo')
         
         return self.cleaned_data['dni']
+    
 
+
+class ReservaForm(forms.Form):
+    predio = forms.SelectMultiple(choices=[(1,"prueba"),(2,"otraprueba")])
+    fecha = forms.SelectDateWidget()
+    desde_hora = forms.SelectMultiple(choices=[(8,8),(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),])
+    desde_minutos = forms.SelectMultiple(choices=[(0,"00"),(0.25,"15"),(0.5,"30"),(0.75,"45")])
+
+    
 
 
 class LoginForm(forms.Form):
