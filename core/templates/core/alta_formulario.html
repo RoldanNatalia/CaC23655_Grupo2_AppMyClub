@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+
+{% block title %} Nueva actividad {% endblock %}
+
+{% block content %}
+
+<h1>Dada de alta de {{ nombre_campo }}</h1>
+
+<form method="post" action="{% url 'index' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+
+
+{% endblock %}

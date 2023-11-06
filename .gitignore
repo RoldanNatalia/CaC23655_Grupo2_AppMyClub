@@ -2,4 +2,9 @@ core/__pycache__/
 AppMyClub/__pycache__/
 core/static/core/img/
 core/migrations/
+core/migrations/__pycache__/
 core/static/core/fontawesome/
+*.pyc
+core/__pycache__/views.cpython-311.pyc
+core/__pycache__/views.cpython-311.pyc
+core/__pycache__/views.cpython-311.pyc
