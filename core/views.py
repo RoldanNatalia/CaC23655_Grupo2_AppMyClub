@@ -7,6 +7,7 @@ from .forms import *
 from .models import *
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from django.contrib.auth import login, authenticate
 
 
  
@@ -130,6 +131,35 @@ class ListaActividades(ListView):
     model = Actividad
     context_object_name = 'listado_actividades'
     template_name = 'core/listado_actividades.html'
+
+def loginView(request):
+    if request.method == "POST":
+
+        login_form = LoginForm(request.POST)
+  
+        if login_form.is_valid():
+
+            usuario = request.POST['nombre']
+            clave = request.POST['clave']
+
+            user = authenticate(request, username = usuario, password = clave)
+
+            if(user is not None):
+                login(request,user)
+                messages.info(request, "Ha iniciado sesión correctamente")
+                return redirect(reverse('portal_socios'))
+            else:
+                messages.info(request, "No se a podido iniciar seción")
+                return redirect(reverse('Socios_login'))
+
+    else: 
+        login_form = LoginForm()
+
+    context = {
+        'ingreso_socios': login_form
+    }
+
+    return render (request, 'core/socios.html',context)
 
 # def reservas(request):
 #     if request.method == "POST":
