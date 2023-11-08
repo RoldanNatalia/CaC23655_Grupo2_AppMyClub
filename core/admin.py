@@ -4,8 +4,8 @@ from core.models import Socio, Profesor, Curso, Predio, Actividad, Inscripcion, 
 # Register your models here.
 
 class SocioAdmin(admin.ModelAdmin):
-    list_display = ('numero','nombre','apellido','dni')
-    list_editable = ('nombre','apellido','dni')
+    list_display = ('numero','nombre','apellido','dni','email','direccion')
+    list_editable = ('nombre','apellido','dni','email','direccion')
 
 admin.site.register(Socio, SocioAdmin)
 admin.site.register(Profesor)
