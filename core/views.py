@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
-from .forms import SocioForm, LoginForm, Actividad
+from .forms import SocioForm, LoginForm, Actividad, ReclamoForm
 from .models import *
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
@@ -120,7 +120,26 @@ def socio_info(request):
     return render (request,'core/socio_info.html', context)
 
 def socio_reclamo(request):
-    context={}
+
+    if request.method == "POST":
+
+        formulario = ReclamoForm(request.POST)
+
+        
+        if formulario.is_valid():
+
+            messages.info(request, "Mensaje enviado")
+            return redirect(reverse('info_socio'))
+
+    else: #GET
+        formulario = ReclamoForm()
+        
+
+    context = {
+        'reclamo_socios': formulario
+    }
+
+    
     return render (request,'core/socio_reclamo.html', context)
 
 def portal_socios(request):

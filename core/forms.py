@@ -60,7 +60,15 @@ class Actividad(forms.ModelForm):
         model: Actividad
         fields = '__all__'
 
+class ReclamoForm (forms.Form):
+    nombre= forms.CharField(label="Nombre*:", required=True, max_length=50)
+    email= forms.EmailField(label="Email*:", required = True)
+    telefono= forms.IntegerField(label="Teléfono:",required=False)
+    consulta= forms.CharField(label="Mensaje*:", max_length=250, required=True, widget=forms.Textarea)
+
     
+
+
 
 
 

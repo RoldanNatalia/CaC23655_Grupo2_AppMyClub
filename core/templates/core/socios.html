@@ -1,17 +1,27 @@
 {% extends "core/base.html" %}
 
-{% block title %} Socios {% endblock %}
-    
-{% block content %}
+{% load static %}
 
-<h2>Exclusivo Socios del Club</h2><br>
-<div class="login">
-<form id="login" method="post" action="{% url 'Socios_login' %}">
-    {% csrf_token %}
-    {{ ingreso_socios.as_p }}
-    <input type="submit" name="log" id="log" value="Ingresar">
-</form>
+{% block title %} Socios {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/login.css' %}">
+{%endblock%}
+
+
+{% block content %}
+<div class="container">
+    <h2>Exclusivo Socios del Club</h2><br>
+    <div class="login">
+        <br>
+        <form id="login" method="post" action="{% url 'Socios_login' %}">
+            {% csrf_token %}
+            {{ ingreso_socios.as_p }}
+            <input type="submit" name="log" id="log" value="Ingresar">
+        </form>
+    </div> 
 </div>
+
 
 
 {% endblock %}

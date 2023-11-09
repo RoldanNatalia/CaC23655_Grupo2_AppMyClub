@@ -2,6 +2,23 @@
 {% load static %}
 {% block title %} Información {% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/socio_reclamo.css' %}">
+{%endblock%}
+
+
 {% block content %}
-    <h3>Dejé sus comentarios...</h3>
+    <h6>MANDANOS TU CONSULTA/RECLAMO Y TE RESPONDEREMOS LO MÁS PRONTO POSIBLE</h6>
+
+    <div class="container">
+        <form action="{% url 'reclamo_socio' %}" method="post">
+            {% csrf_token %}
+            {{ reclamo_socios.as_p }}
+            <input type="submit">
+
+        </form>
+    </div>
+    
+
+
 {% endblock %}

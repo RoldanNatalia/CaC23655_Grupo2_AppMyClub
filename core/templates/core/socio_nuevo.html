@@ -1,19 +1,43 @@
 {% extends "core/base.html" %}
-
+{% load static %}
 {% block title %} Nuevo socio {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/socio_nuevo.css' %}">
+{%endblock%}
 
 {% block content %}
 
 <h2>Socio nuevo</h2>
+
 <br>
 <h4>Por favor, complete los siguientes datos:</h4>
 <br>
-    <form action="{% url 'nuevo_socio' %}" method="post">
-        {% csrf_token %}
-        {{ alta_socio.as_p }}
-        <input type="submit">
+    <div class="container">
+       <form action="{% url 'nuevo_socio' %}" method="post">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ alta_socio.as_p }}
+            <input type="submit" class="btn btn-primary">
+        </div>
+            
 
-    </form>
+        </form> 
+        <div class="datos_club">
+                <div>
+                    <br>
+                    <h6>Dirección</h6>
+                    <p>Av. Libertador 7500 Núñez CABA</p>
+                    <h6>Telefono</h6>
+                    <p>011-1234-5678</p>
+                    <h6>E-mail</h6>
+                    <p>superclubdeportivo@gmail.com</p>
+                </div>
+                
+            
+        </div>
+    </div>
+   
 
 
-{% endblock %}
+{% endblock %}  
