@@ -3,11 +3,11 @@ from core.models import Socio, Profesor, Curso, Predio, Actividad, Inscripcion, 
 
 # Register your models here.
 
-class SocioAdmin(admin.ModelAdmin):
-    list_display = ('numero','nombre','apellido','dni','email','direccion')
-    list_editable = ('nombre','apellido','dni','email','direccion')
+# class SocioAdmin(admin.ModelAdmin):
+#     list_display = ('nombre','apellido','dni','email','direccion')
+#     list_editable = ('nombre','apellido','dni','email','direccion')
 
-admin.site.register(Socio, SocioAdmin)
+admin.site.register(Socio, )
 admin.site.register(Profesor)
 admin.site.register(Curso)
 admin.site.register(Predio)

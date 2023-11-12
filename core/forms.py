@@ -51,7 +51,7 @@ class ReservaForm(forms.Form):
 
 class LoginForm(forms.Form):
     nombre = forms.CharField(label="Nombre de usuario:", required=True)
-    clave = forms.CharField(label="Contraseña",widget=forms.PasswordInput, required=False, max_length=6)
+    clave = forms.CharField(label="Contraseña",widget=forms.PasswordInput, required=False)
 
     def clean_nombre(self):
        

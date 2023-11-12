@@ -1,13 +1,15 @@
 from typing import Any
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Persona(models.Model):
+    usuario = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+
     nombre=models.CharField(max_length=30)
     apellido=models.CharField(max_length=60)
     dni=models.CharField(max_length=8)
-    email=models.EmailField(max_length=100,default="to1@example.com")
     direccion=models.CharField(max_length=100,default="Domicilio..")
 
     class Meta():
@@ -29,7 +31,6 @@ class Actividad(models.Model):
         return self.nombre
 
 class Socio(Persona):
-    numero = models.IntegerField()
 
     def __str__(self) -> str:
         return f"numero: {self.numero}; \n" + super().__str__()

@@ -8,10 +8,9 @@ urlpatterns = [
     path('actividades/<str:actividad>', views.actividad, name="detalle_actividad"),
     path('contacto',views.contacto,name="core-contacto"),
     path('socios/nuevo',views.socio_nuevo,name="nuevo_socio"),
-    path('socios/login',views.socios, name='Socios_login'),
+    path('socios/login',views.loginView, name='Socios_login'),
     path('Portal-socios',views.portal_socios,name="portal_socios"),
-    path('alta_actividad',views.AltaActividad.as_view(),name="alta_actividad"),
     path('listado_actividades',views.ListaActividades.as_view(),name="lista_actividad"),
     # path('Portal-socios/reservas',views.reservas,name="reservas_socio"),
-    path('alta_predio',views.AltaPredio.as_view(),name="alta_predio"),
+
 ]

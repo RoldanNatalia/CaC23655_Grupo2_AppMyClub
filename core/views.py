@@ -7,10 +7,9 @@ from .forms import *
 from .models import *
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
-
- 
 
 
 # Create your views here.
@@ -48,27 +47,6 @@ def contacto(request):
 
 def institucional(request):
     return render(request,'core/institucional.html')
-
-def socios(request):
-
-    if request.method == "POST":
-
-        login_form = LoginForm(request.POST)
-
-        
-        if login_form.is_valid():
-
-            messages.info(request, "Ha iniciado sesión correctamente")
-            return redirect(reverse('portal_socios'))
-
-    else: 
-        login_form = LoginForm()
-
-    context = {
-        'ingreso_socios': login_form
-    }
-
-    return render (request, 'core/socios.html',context)
 
 def socio_nuevo (request):
     print("en vista")
@@ -110,15 +88,15 @@ def socio_nuevo (request):
 
     return render (request, 'core/socio_nuevo.html',context)
 
+@login_required
 def portal_socios(request):
+
     return render(request,'core/portal_socios.html')
 
-class AltaActividad(CreateView):
-    model = Actividad
-    template_name = 'core/alta_formulario.html'
-    success_url = 'index'
-    # form_class = AltaDocenteModelForm
-    fields = '__all__'
+def logout_vew(request):
+    logout(request)
+
+    return reverse('index')
 
 class AltaPredio(CreateView):
     model = Predio
@@ -147,8 +125,10 @@ def loginView(request):
             if(user is not None):
                 login(request,user)
                 messages.info(request, "Ha iniciado sesión correctamente")
+
                 return redirect(reverse('portal_socios'))
             else:
+
                 messages.info(request, "No se a podido iniciar seción")
                 return redirect(reverse('Socios_login'))
 
