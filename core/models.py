@@ -22,16 +22,20 @@ class Persona(models.Model):
         return self.cleaned_data['dni']
     
     def __str__(self) -> str:
-        return f"nombre y apellido: {self.nombre} {self.apellido}; \ndni: {self.dni};"
+        return f"{self.nombre.capitalize()} {self.apellido.capitalize()} - {self.dni};"
     
 class Actividad(models.Model):
     nombre = models.CharField(max_length=30, unique=True)
 
     def __str__(self) -> str:
         return self.nombre
+    
+    class Meta:
+        verbose_name_plural = "actividades"
 
 class Socio(Persona):
-    pass
+    def esta_al_dia(self):
+        pass
     # def __str__(self) -> str:
     #     return f"nombre y apellido: {self.nombre} {self.apellido}; \n" + super().__str__()
 
@@ -40,13 +44,15 @@ class Profesor(Persona):
 
     def __str__(self) -> str:
         return f"actividad: {self.actividad}; \n" + super().__str__()
+    
+    class Meta:
+        verbose_name_plural = "profesores"
 
 class Predio(models.Model):
     nombre = models.CharField(max_length=40, unique=True)
 
     def __str__(self) -> str:
         return self.nombre
-
 
 class Dia(models.Model):
     dia = models.CharField(max_length=9, unique=True)
@@ -101,6 +107,18 @@ class Inscripcion(models.Model):
 
     def __str__(self) -> str:
         return f"inscripcion de {self.curso.actividad} en {self.curso.predio} del alumno {self.alumno}"
+
+    class Meta:
+        verbose_name_plural = "inscripciones"
+
+
+class Pago(models.Model):
+    socio = models.ForeignKey(Socio, on_delete=models.CASCADE)
+    monto = models.IntegerField()
+
+    def clean_pago(self):
+        pass
+
 
 # class Reserva(models.Model):
 #     predio = models.ForeignKey(Predio, on_delete=models.CASCADE)
