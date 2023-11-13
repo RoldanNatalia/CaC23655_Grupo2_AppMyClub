@@ -31,9 +31,9 @@ class Actividad(models.Model):
         return self.nombre
 
 class Socio(Persona):
-
-    def __str__(self) -> str:
-        return f"numero: {self.numero}; \n" + super().__str__()
+    pass
+    # def __str__(self) -> str:
+    #     return f"nombre y apellido: {self.nombre} {self.apellido}; \n" + super().__str__()
 
 class Profesor(Persona):
     actividad = models.ForeignKey(Actividad,on_delete=models.CASCADE)
@@ -100,7 +100,7 @@ class Inscripcion(models.Model):
     fecha = models.DateField()
 
     def __str__(self) -> str:
-        return f"inscripcion de {self.curso.actividad} en {self.curso.predio} del alumno {self.alumno.numero}"
+        return f"inscripcion de {self.curso.actividad} en {self.curso.predio} del alumno {self.alumno}"
 
 # class Reserva(models.Model):
 #     predio = models.ForeignKey(Predio, on_delete=models.CASCADE)
