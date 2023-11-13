@@ -99,7 +99,7 @@ def socio_nuevo (request):
 @login_required
 def portal_socios(request):
     if request.user is not None:
-        socio = Socio.objects.filter(usuario=request.user)
+        socio = Socio.objects.filter(usuario=request.user)[0]
 
         context = {
             'usuario' : request.user,
