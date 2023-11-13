@@ -6,7 +6,7 @@
     </a>
 
 
-    <a class="navbar-brand" href="{% url 'index' %}">
-        {{ datos_socio }} <img src="{% static 'core/img/profile.png' %}" width="30" height="30" class="img border rounded-circle">
+    <a class="navbar-brand" href="{% url 'logout' %}">
+        {{ usuario.email }} <img src="{% static 'core/img/profile.png' %}" width="30" height="30" class="img border rounded-circle">
     </a>
   </nav>

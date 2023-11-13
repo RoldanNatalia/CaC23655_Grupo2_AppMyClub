@@ -48,6 +48,7 @@ def contacto(request):
 def institucional(request):
     return render(request,'core/institucional.html')
 
+
 def socio_nuevo (request):
     print("en vista")
     if request.method == "POST":
@@ -97,29 +98,24 @@ def socio_nuevo (request):
 
 @login_required
 def portal_socios(request):
-    #autenticar usuario primero
+    if request.user is not None:
+        socio = Socio.objects.filter(usuario=request.user)
 
-    socio = Socio.objects.filter(usuario=request.user)
+        context = {
+            'usuario' : request.user,
+            'datos_socio' : socio
+        }
 
-    context = {
-        'usuario' : request.user,
-        'datos_socio' : socio
-    }
+        return render(request,'core/portal_socios.html',context)
 
-    return render(request,'core/portal_socios.html',context)
+    return reverse('logout_view')
 
 @login_required
-def logout_vew(request):
+def logout_view(request):
     logout(request)
 
-    return reverse('index')
+    return redirect('index')
 
-# class AltaPredio(CreateView):
-#     model = Predio
-#     form_class = NuevoPredioForm
-#     template_name = 'core/alta_formulario.html'
-
-#     fields = '__all__'
 
 class ListaActividades(ListView):
     model = Actividad

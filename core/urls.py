@@ -11,6 +11,7 @@ urlpatterns = [
     path('socios/login',views.loginView, name='Socios_login'),
     path('Portal-socios',views.portal_socios,name="portal_socios"),
     path('listado_actividades',views.ListaActividades.as_view(),name="lista_actividad"),
+    path('accounts/logout/', views.logout_view, name='logout'),
     # path('Portal-socios/reservas',views.reservas,name="reservas_socio"),
 
 ]
