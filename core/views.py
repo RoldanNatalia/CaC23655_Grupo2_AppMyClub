@@ -55,18 +55,25 @@ def socio_nuevo (request):
         formulario = SocioForm(request.POST)
         # Validarlo
         if formulario.is_valid():
-            # Dar de alta la info
-
-            #ingreso a BBDD
             f_nombre=formulario.cleaned_data['nombre']
             f_apellido=formulario.cleaned_data['apellido']
             f_dni=formulario.cleaned_data['dni']
             f_email=formulario.cleaned_data['email']
             f_direccion=formulario.cleaned_data['direccion']
+            
+
+            try:
+                usuario = User.objects.create_user(f_dni, f_email, f_dni)
+                usuario.save()
+            except:
+                messages.info(request, "Error al crear el nuevo socio")
+                return redirect(reverse("socio_nuevo"))
+            else:
+                messages.info(request, "Usuario creado con exito")
 
 
             try:
-                socio = Socio(numero = 1, nombre=f_nombre,apellido=f_apellido,dni=f_dni,email=f_email,direccion=f_direccion)
+                socio = Socio(usuario = usuario, nombre=f_nombre,apellido=f_apellido,dni=f_dni,direccion=f_direccion)
                 socio.save()
             except:
                 messages.info(request, "Error al crear el nuevo socio")
@@ -90,20 +97,29 @@ def socio_nuevo (request):
 
 @login_required
 def portal_socios(request):
+    #autenticar usuario primero
 
-    return render(request,'core/portal_socios.html')
+    socio = Socio.objects.filter(usuario=request.user)
 
+    context = {
+        'usuario' : request.user,
+        'datos_socio' : socio
+    }
+
+    return render(request,'core/portal_socios.html',context)
+
+@login_required
 def logout_vew(request):
     logout(request)
 
     return reverse('index')
 
-class AltaPredio(CreateView):
-    model = Predio
-    form_class = NuevoPredioForm
-    template_name = 'core/alta_formulario.html'
+# class AltaPredio(CreateView):
+#     model = Predio
+#     form_class = NuevoPredioForm
+#     template_name = 'core/alta_formulario.html'
 
-    fields = '__all__'
+#     fields = '__all__'
 
 class ListaActividades(ListView):
     model = Actividad
@@ -133,13 +149,15 @@ def loginView(request):
                 return redirect(reverse('Socios_login'))
 
     else: 
-        login_form = LoginForm()
+        if request.user.is_authenticated:
+            return redirect(reverse('portal_socios'))
 
-    context = {
-        'ingreso_socios': login_form
-    }
+        else:
+            context = {
+                'ingreso_socios': LoginForm()
+            }
+            return render (request, 'core/socios.html',context)
 
-    return render (request, 'core/socios.html',context)
 
 # def reservas(request):
 #     if request.method == "POST":

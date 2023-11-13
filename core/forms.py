@@ -34,20 +34,20 @@ class SocioForm(forms.Form):
     
 
 
-class ReservaForm(forms.Form):
-    predios = []
-    for predio in Predio.objects.all():
-        predios.append((predio,predio.nombre))
+# class ReservaForm(forms.Form):
+#     predios = []
+#     for predio in Predio.objects.all():
+#         predios.append((predio,predio.nombre))
 
-    predio = forms.ChoiceField(choices=predios)
-    fecha = forms.DateField(widget=forms.SelectDateWidget())
-    desde_hora = forms.ChoiceField(label="Desde", choices=[(8,8),(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(17,17),(18,18),(19,19),(20,20)])
-    desde_minutos = forms.ChoiceField(label=":",choices=[(0,"00"),(0.25,"15"),(0.5,"30"),(0.75,"45")])
+#     predio = forms.ChoiceField(choices=predios)
+#     fecha = forms.DateField(widget=forms.SelectDateWidget())
+#     desde_hora = forms.ChoiceField(label="Desde", choices=[(8,8),(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),(15,15),(16,16),(17,17),(18,18),(19,19),(20,20)])
+#     desde_minutos = forms.ChoiceField(label=":",choices=[(0,"00"),(0.25,"15"),(0.5,"30"),(0.75,"45")])
 
-    ejemplo = forms.DateField()
+#     ejemplo = forms.DateField()
     
-    def clean_horario():
-        pass
+#     def clean_horario():
+#         pass
 
 class LoginForm(forms.Form):
     nombre = forms.CharField(label="Nombre de usuario:", required=True)
@@ -70,13 +70,13 @@ class LoginForm(forms.Form):
 
         return clave
     
-class Actividad(forms.ModelForm):
-    class Meta:
-        model: Actividad
-        fields = '__all__'
+# class Actividad(forms.ModelForm):
+#     class Meta:
+#         model: Actividad
+#         fields = '__all__'
 
-class NuevoPredioForm(forms.Form):
-    nombre = forms.CharField(label="nombre del predio:")
+# class NuevoPredioForm(forms.Form):
+#     nombre = forms.CharField(label="nombre del predio:")
 
     
 
