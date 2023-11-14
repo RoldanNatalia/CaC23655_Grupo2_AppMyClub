@@ -9,6 +9,7 @@ admin.site.register(Predio)
 admin.site.register(Actividad)
 admin.site.register(Inscripcion)
 admin.site.register(DiaCurso)
+admin.site.register(Dia)
 
 
 admin.site.index_title = "Tablas"
