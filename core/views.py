@@ -3,10 +3,13 @@ from django.contrib import messages
 from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
-from .forms import SocioForm, LoginForm, Actividad, ReclamoForm
+from .forms import SocioForm, LoginForm, Actividad,ReclamoForm
 from .models import *
+from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 
 
  
@@ -48,7 +51,7 @@ def contacto(request):
 def institucional(request):
     return render(request,'core/institucional.html')
 
-def socios(request):
+def loginView(request):
 
     if request.method == "POST":
 
@@ -57,17 +60,30 @@ def socios(request):
         
         if login_form.is_valid():
 
-            messages.info(request, "Ha iniciado sesión correctamente")
-            return redirect(reverse('portal_socios'))
+            usuario = request.POST['nombre']
+            clave = request.POST['contraseña']
+
+            user = authenticate(request, username = usuario, password = clave)
+
+            if(user is not None):
+                login(request,user)
+                messages.info(request, "Ha iniciado sesión correctamente")
+
+                return redirect(reverse('portal_socios'))
+            else:
+
+                messages.info(request, "No se a podido iniciar seción")
+                return redirect(reverse('Socios_login'))
 
     else: 
-        login_form = LoginForm()
+        if request.user.is_authenticated:
+            return redirect(reverse('portal_socios'))
 
-    context = {
-        'ingreso_socios': login_form
-    }
-
-    return render (request, 'core/socios.html',context)
+        else:
+            context = {
+                'ingreso_socios': LoginForm()
+            }
+            return render (request, 'core/socios.html',context)
 
 def socio_nuevo (request):
     print("en vista")
@@ -85,9 +101,17 @@ def socio_nuevo (request):
             f_email=formulario.cleaned_data['email']
             f_direccion=formulario.cleaned_data['direccion']
 
+            try:
+                usuario = User.objects.create_user(f_dni, f_email, f_dni)
+                usuario.save()
+            except:
+                messages.info(request, "Error al crear el nuevo socio")
+                return redirect(reverse("socio_nuevo"))
+            else:
+                messages.info(request, "Usuario creado con exito")
 
             try:
-                socio = Socio(numero = 1, nombre=f_nombre,apellido=f_apellido,dni=f_dni,email=f_email,direccion=f_direccion)
+                socio = Socio(usuario = usuario, nombre=f_nombre,apellido=f_apellido,dni=f_dni,email=f_email,direccion=f_direccion)
                 socio.save()
             except:
                 messages.info(request, "Error al crear el nuevo socio")
@@ -142,18 +166,60 @@ def socio_reclamo(request):
     
     return render (request,'core/socio_reclamo.html', context)
 
+@login_required
 def portal_socios(request):
-    return render(request,'core/portal_socios.html')
+     
+    if request.user is not None:
+        socio = Socio.objects.filter(usuario=request.user)[0]
 
-class AltaActividad(CreateView):
-    model = Actividad
-    template_name = 'core/alta_actividad.html'
-    success_url = 'listado_actividades'
+        context = {
+            'usuario' : request.user,
+            'datos_socio' : socio
+        }
+
+        return render(request,'core/portal_socios.html',context)
+    return reverse('logout_view')
+
+@login_required
+def logout_view (request):
+    logout(request)
+
+    return redirect('index')
+
+
+
+#class AltaActividad(CreateView):
+ #   model = Actividad
+  #  template_name = 'core/alta_actividad.html'
+   # success_url = 'listado_actividades'
     # form_class = AltaDocenteModelForm
-    fields = '__all__'
+    #fields = '__all__'
 
 class ListaActividades(ListView):
     model = Actividad
     context_object_name = 'listado_actividades'
     template_name = 'core/listado_actividades.html'
+    
+# def reservas(request):
+#     if request.method == "POST":
+
+#         reserva_form = ReservaForm(request.POST)
+
+        
+#         if reserva_form.is_valid():
+
+#             messages.info(request, "Reserva realizada con éxito")
+#             return redirect(reverse('portal_socios'))
+
+#     else: 
+#         reserva_form = ReservaForm()
+
+
+#     context = {
+#         'lista_reservas': Socio.objects.all(),
+#         'formulario': reserva_form
+#     }
+
+#     return render(request, 'core/reservas.html',context)
+
     
