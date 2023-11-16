@@ -97,18 +97,23 @@ def socio_nuevo (request):
     return render (request, 'core/socio_nuevo.html',context)
 
 @login_required
-def portal_socios(request):
+def info_socio(request):
     if request.user is not None:
-        socio = Socio.objects.filter(usuario=request.user)[0]
+        try:
+            socio = Socio.objects.filter(usuario=request.user)[0]
+        except IndexError:
+            messages.info(request, "No existe un socio para este usuario")
+            return redirect('index')
+
 
         context = {
             'usuario' : request.user,
             'datos_socio' : socio
         }
 
-        return render(request,'core/portal_socios.html',context)
+        return render(request,'core/info_socio.html',context)
 
-    return reverse('logout_view')
+    return redirect('logout_view')
 
 @login_required
 def logout_view(request):
@@ -121,6 +126,7 @@ class ListaActividades(ListView):
     model = Actividad
     context_object_name = 'listado_actividades'
     template_name = 'core/listado_actividades.html'
+
 
 def loginView(request):
     if request.method == "POST":
@@ -138,7 +144,7 @@ def loginView(request):
                 login(request,user)
                 messages.info(request, "Ha iniciado sesión correctamente")
 
-                return redirect(reverse('portal_socios'))
+                return redirect(reverse('info_socio'))
             else:
 
                 messages.info(request, "No se a podido iniciar seción")
@@ -146,7 +152,7 @@ def loginView(request):
 
     else: 
         if request.user.is_authenticated:
-            return redirect(reverse('portal_socios'))
+            return redirect(reverse('info_socio'))
 
         else:
             context = {
@@ -154,6 +160,53 @@ def loginView(request):
             }
             return render (request, 'core/socios.html',context)
 
+@login_required
+def socio_info(request):
+    context={
+    'noticias' : [
+            {'name':'Más info','url_image':'core/img/handball.jpg', 'descrip':'Ascenso en Handball masculino!!'},
+            {'name':'Inscripción','url_image':'core/img/colonia.jpg','descrip':'Inscripción verano 2023/2024'},
+            {'name':'Ver más','url_image':'core/img/tenis.jpg', 'descrip':'Próximamente torneo...'},
+                    ]}
+    return render (request,'core/socio_info.html', context)
+
+@login_required
+def reclamo_socio(request):
+    if request.user is not None:
+        try:
+            socio = Socio.objects.filter(usuario=request.user)[0]
+        except IndexError:
+            messages.info(request, "No existe un socio para este usuario")
+            return redirect('index')
+
+
+        context = {
+            'usuario' : request.user,
+            'datos_socio' : socio
+        }
+    else:
+        raise NotADirectoryError
+
+    if request.method == "POST":
+
+        formulario = ReclamoForm(request.POST)
+
+        
+        if formulario.is_valid():
+
+            messages.info(request, "Mensaje enviado")
+            return redirect(reverse('info_socio'))
+
+    else: #GET
+        formulario = ReclamoForm()
+        
+
+    context = {
+        'reclamo_socios': formulario
+    }
+
+    
+    return render (request,'core/socio_reclamo.html', context)
 
 # def reservas(request):
 #     if request.method == "POST":
@@ -164,7 +217,7 @@ def loginView(request):
 #         if reserva_form.is_valid():
 
 #             messages.info(request, "Reserva realizada con éxito")
-#             return redirect(reverse('portal_socios'))
+#             return redirect(reverse('info_socio'))
 
 #     else: 
 #         reserva_form = ReservaForm()

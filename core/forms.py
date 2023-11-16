@@ -49,6 +49,12 @@ class SocioForm(forms.Form):
 #     def clean_horario():
 #         pass
 
+class ReclamoForm (forms.Form):
+    nombre= forms.CharField(label="Nombre*:", required=True, max_length=50)
+    email= forms.EmailField(label="Email*:", required = True)
+    telefono= forms.IntegerField(label="Teléfono:",required=False)
+    consulta= forms.CharField(label="Mensaje*:", max_length=250, required=True, widget=forms.Textarea)
+
 class LoginForm(forms.Form):
     nombre = forms.CharField(label="Nombre de usuario:", required=True)
     clave = forms.CharField(label="Contraseña",widget=forms.PasswordInput, required=False)

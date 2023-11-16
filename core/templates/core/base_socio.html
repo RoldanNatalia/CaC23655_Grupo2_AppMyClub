@@ -28,15 +28,15 @@
                <!-- Hover added -->
                <div class="list-group d-flex justify-content-sm-around align-items-sm-center h-75" style="height: 100vh;">
                   <div>
-                     <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-info-circle"></i><span class="m-2">INFORMACION</span></button>
-                     <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-basketball-ball"></i><span class="m-2">MIS ACTIVIDADES</span></button>
-                     <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-money-bill-wave"></i><span class="m-2">PAGOS</span></button>
-                     <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-calendar-day"></i><span class="m-2">RESERVAS</span></button>
+                     <button type="button" class="list-group-item list-group-item-action rounded mt-1" onclick=location.href="{% url 'info_socio' %}"><i class="fas fa-info-circle"></i><span class="m-2">INFORMACION</span></button>
+                     <button type="button" class="list-group-item list-group-item-action rounded mt-1" onclick=location.href="{% url 'info_socio' %}"><i class="fas fa-basketball-ball"></i><span class="m-2">MIS ACTIVIDADES</span></button>
+                     <button type="button" class="list-group-item list-group-item-action rounded mt-1" onclick=location.href="{% url 'info_socio' %}"><i class="fas fa-money-bill-wave"></i><span class="m-2">PAGOS</span></button>
+                     <button type="button" class="list-group-item list-group-item-action rounded mt-1" onclick=location.href="{% url 'info_socio' %}"><i class="fas fa-calendar-day"></i><span class="m-2">RESERVAS</span></button>
                   </div>
          
                   <div>
-                     <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-exclamation-triangle"></i><span class="m-2">RECLAMOS</span></button>
-                     <button type="button" class="list-group-item list-group-item-action rounded mt-1"><i class="fas fa-user-circle"></i><span class="m-2">MI CUENTA</span></button>
+                     <button type="button" class="list-group-item list-group-item-action rounded mt-1" onclick=location.href="{% url 'reclamo_socio' %}"><i class="fas fa-exclamation-triangle"></i><span class="m-2">RECLAMOS</span></button>
+                     <button type="button" class="list-group-item list-group-item-action rounded mt-1" onclick=location.href="{% url 'info_socio' %}"><i class="fas fa-user-circle"></i><span class="m-2">MI CUENTA</span></button>
                   </div>
          
                </div>
