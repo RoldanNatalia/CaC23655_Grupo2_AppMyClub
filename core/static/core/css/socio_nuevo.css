@@ -1,12 +1,17 @@
 label {
     display:inline-block;
     width: 80px;
+    color:grey;
+    font-size: 15px;
+    margin-left: 10px;
 }
 .form-group{
-    border-radius: 5px;
+    border-radius: 20px;
     border: 1px solid rgb(4, 124, 176);;
     width: 500px;
     padding: 8px;
+    background-color:lightgrey;
+    margin-left: 10px;
     
 }
 .container{
@@ -17,7 +22,7 @@ label {
 
 }
 h6{
-    color: #b8b3b3;;
+    color: #b8b3b3;
 }
 .datos_club{
     display: inline;

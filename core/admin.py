@@ -63,3 +63,5 @@ class ProfesorAdmin(admin.ModelAdmin):
         usuario, _ = User.objects.get_or_create(username=dni,password=dni,email=correo)
         obj.usuario = usuario
         super().save_model(request, obj, form, change)
+
+ 

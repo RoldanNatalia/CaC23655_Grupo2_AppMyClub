@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %} Nuevo socio {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/socio_nuevo.css' %}">
+{%endblock%}
+
+{% block content %}
+
+<h2>ARANCELES</h2>
+
+<br>
+<h4>Nuevos valores a partir de Noviembre 2023:</h4>
+<br>
+    <div class="container">
+       
+        <div class="datos_club">
+                <div>
+                    <br>
+                    <h4>Administración</h4>
+                    <h5>Horario de atencion:</h5>
+                    <p>Lunes, miércoles y viernes de 9 a 16hs.</p>
+                    <p>Martes y jueves de 14 a 21hs.</p>
+                    <h6>Dirección</h6>
+                    <p>Av. Libertador 7500 Núñez CABA</p>
+                    <h6>Telefono</h6>
+                    <p>011-1234-5678</p>
+                    <h6>E-mail</h6>
+                    <p>superclubdeportivo@gmail.com</p>
+                </div>
+                
+            
+        </div>
+    </div>
+   
+
+
+{% endblock %}  

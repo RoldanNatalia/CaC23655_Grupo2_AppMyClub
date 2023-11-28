@@ -133,6 +133,9 @@ def socio_nuevo (request):
 
     return render (request, 'core/socio_nuevo.html',context)
 
+def socio_aranceles (request):
+    context={}
+    return render (request, 'core/socio_aranceles.html',context)
 
 def socio_info(request):
     context={
@@ -142,6 +145,14 @@ def socio_info(request):
             {'name':'Ver más','url_image':'core/img/tenis.jpg', 'descrip':'Próximamente torneo...'},
                     ]}
     return render (request,'core/socio_info.html', context)
+def socio_novedades(request):
+    context={
+    'noticias' : [
+            {'name':'Más info','url_image':'core/img/handball.jpg', 'descrip':'Ascenso en Handball masculino!!'},
+            {'name':'Inscripción','url_image':'core/img/colonia.jpg','descrip':'Inscripción verano 2023/2024'},
+            {'name':'Ver más','url_image':'core/img/tenis.jpg', 'descrip':'Próximamente torneo...'},
+                    ]}
+    return render (request,'core/novedades.html', context)
 
 def socio_reclamo(request):
 

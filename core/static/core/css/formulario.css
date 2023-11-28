@@ -39,8 +39,8 @@
 
 .formulario-contact{
     border:2px solid rgb(4, 124, 176);
+    background-color:lightgrey;
     padding:20px 40px;
-
     border-radius: 15px;
     margin:40px;
 }

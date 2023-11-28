@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %} Novedades {% endblock %}
+
+
+
+{% block content %}
+
+<h2>NOTICIAS</h2>
+<br>
+<p>📌<b>ATENCION:</b> Domingo 19 de Noviembre el club permanecerá cerrado.</p>
+<!-- Noticias -->
+<div class="container mt-4">
+    <p class="h1 text-center">Destacadas</p>
+
+    <div class="row">
+        {% for activity in noticias %}
+        <div class="col-9 col-sm-5 col-lg-4 align-items-center justify-content-sm-around justify-content-center d-flex align-items-stretch">
+            <div class="card m-2">
+                <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
+                
+                <div class="card-body text-center">
+                    <p>{{activity.descrip}}</p>
+
+                    <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                
+                </div>
+            </div> 
+        </div>
+
+        {% endfor %}
+
+        
+    </div>
+</div>
+<hr class="hr">
+
+{% endblock %}
