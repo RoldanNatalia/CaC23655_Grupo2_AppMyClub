@@ -1,0 +1,131 @@
+{% extends "core/base.html" %}
+
+{% block title %} Preguntas frecuentes {% endblock %}
+
+{% block content %}
+<style>
+    .pd-2{
+    padding:2%;
+}
+.pd-r-2{
+    padding-right:2%;
+}
+.pd-l-2{
+    padding-left:2%;
+}
+.pd-t-2{
+    padding-top:2%;
+}
+.pd-b-2{
+    padding-bottom:2%;
+}
+
+div[data-toggle="collapse"]{
+   border-bottom:1px solid #BBDEFB;
+   width:100%;
+   cursor:pointer;
+   padding:1%;
+}
+
+</style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans" rel="stylesheet"> 
+<div class="container mb-5 mt-5">
+	<div class="row bg-info card my-4 mb-3 pd-l-2">
+		<h3 class="p-1">
+		    <span class="fa fa-question-circle text-white mt-2"></span> Preguntas Frecuentes
+		</h3>
+	</div>
+	
+	<div class="row m-5">
+	    <p class="col-sm-6 col-md-12">
+	    Aquí están algunas de las preguntas más frecuentes que solemos recibir
+	    </p>
+  
+	    <ul id="accordion" class="col-sm-6 col-md-12">
+	        <!-- Question one -->
+	        <li class="m-3">
+	            <div id="choose" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+	                ¿Cuáles son las actividades principales que ofrece el club?
+	                <span class="fa fa-chevron-up fa-1x text-info pull-right"></span>
+	            </div>
+	            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    El club ofrece una variedad de actividades para satisfacer las necesidades e intereses de la comunidad local. Esto incluye deportes como fútbol, baloncesto, y actividades recreativas como eventos sociales, clases o talleres.
+                  </div>
+                </div>
+	        </li>
+	        
+	        <!-- Question two -->
+	        <li class="m-3">
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	                ¿Cómo puedo unirme y participar de las actividades?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    Unirse al club es fácil. Puedes visitar nuestra sede durante el horario de atención, completar un formulario de membresía y pagar la tarifa correspondiente. Una vez que te hayas unido, tendrás acceso a todas nuestras actividades y eventos.
+                  </div>
+                </div>
+	        </li>
+	        
+	        <!-- Question three -->
+	        <li class="m-3">
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	                ¿Cuáles son los costos asociados con ser miembro del club?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="card-body">
+                    Los costos de membresía varían según las actividades de cada socio y el tamaño de su grupo familiar. Es decir, que además de la tarifa base se debe abonar por separado según la actividad que se desee realizar, pero trabajamos para mantener costos asequibles y accesibles para la comunidad.
+                  </div>
+                </div>
+	        </li>
+	        
+	        <!-- Question Four -->
+	        <li class="m-3">
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+	                ¿Cuáles son los eventos destacados que el club organiza durante el año?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="card-body">
+                    Organizamos una variedad de eventos a lo largo del año, desde torneos deportivos locales hasta actividades comunitarias. Algunos ejemplos incluyen ferias, festivales deportivos y eventos solidarios. Estos eventos son una excelente manera de unir a la comunidad y promover la participación.                  </div>
+                </div>
+	        </li>
+	        
+	        <!-- Questiion Five -->
+	        <li class="m-3">
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+	                ¿Cómo se financia el club y cuáles son las principales fuentes de ingresos?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="card-body">
+                    El club se financia principalmente a través de las tarifas de membresía, patrocinios locales y eventos especiales. Además, realizamos actividades de recaudación de fondos para apoyar mejoras en las instalaciones y ofrecer programas asequibles para todos.                    </div>
+                </div>
+	        </li>
+	        
+	        <!-- Question Six-->
+	        <li class="m-3">
+	            <div class="collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+	                ¿Cómo el club fomenta el espíritu de voluntariado y participación activa en proyectos comunitarios?
+	                <span class="fa fa-chevron-down fa-1x text-info pull-right"></span>
+	            </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                        El club considera que el voluntariado es una parte fundamental de fortalecer la comunidad. Organizamos regularmente proyectos comunitarios que van desde limpiezas locales hasta programas de tutoría para jóvenes. Reconocemos y celebramos a nuestros voluntarios, destacando su contribución en eventos especiales y ofreciendo reconocimientos públicos.
+                    </div>
+                    <div class="card-body">
+                        Además, hemos establecido un programa de desarrollo de liderazgo que capacita a los miembros interesados en asumir roles de voluntariado más significativos. Creemos que al fomentar el espíritu de servicio, no solo beneficiamos a la comunidad, sino que también creamos ciudadanos comprometidos y empoderados.                    </div>
+                </div>
+	        </li>
+	    </ul>
+	</div>
+</div>
+{% endblock %}

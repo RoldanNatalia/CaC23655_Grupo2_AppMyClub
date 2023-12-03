@@ -1,0 +1,42 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block content %}
+
+
+<div class="container d-flex align-items-center justify-content-center mb-5">
+
+    <div class="lc-block col-md-6 col-md-offset-6 border p-5 m-5" id="l-login">
+
+        <div class="lcb-float text-center"><i class="fa fa-users"></i></div>
+        
+        <form action="{% url 'login' %}" method="post" class="mt-3">
+            {% csrf_token %}
+            {% if error_message %}
+                <p class="bg-danger p-d ml-b">{{ error_message }}</p>
+            {% endif %}
+            <div class="form-group">
+                <label for="username">Nombre de usuario</label>
+                <input name="username" type="text" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input name="password" type="password" class="form-control" placeholder="Password">
+            </div>  
+            <div class="clearfix mb-5"></div>
+            <button type="submit" class="btn btn-block btn-primary btn-float m-t-25 mt-5">Sign In</button>
+            <ul class="login-navigation">
+                <li data-block="#l-register" class="bg-green">Register</li>
+                <li data-block="#l-forget-password" class="bg-orange">Forgot Password?</li>
+            </ul>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

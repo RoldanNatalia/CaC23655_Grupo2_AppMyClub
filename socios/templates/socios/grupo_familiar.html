@@ -1,0 +1,68 @@
+{% extends "socios/base.html" %}
+{% load static %}
+{% block title %} Mi Grupo {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box no-header clearfix">
+                <div class="main-box-body clearfix">
+                    <div class="table-responsive">
+                        <table class="table user-list">
+                            <thead>
+                                <td>
+                                    <span>Miembro</span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="label label-default"></span>
+                                </td>
+                            </thead>
+                            <tbody>
+                                {% for integrante in socio.get_grupo_familiar.integrantes.all %}
+                                <tr>
+                                    <td class="p-2">
+                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <a href="#" class="user-link">{{ integrante.first_name }} {{integrante.last_name }}</a>
+                                    </td>
+
+                                </tr>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-gray-200" scope="col">Actividad</th>
+                                            <th class="border-gray-200" scope="col">Predio</th>
+                                            <th class="border-gray-200" scope="col">Horario</th>
+                                            <th class="border-gray-200" scope="col">Cuota</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for actividad in integrante.get_actividades %}
+                                        <tr>
+                                            <td>{{actividad.actividad | capfirst }}</td>
+                                            <td>{{actividad.predio | title}}</td>
+                                            <td>{{actividad.get_dias | title}} de {{actividad.get_horario.desde}} a {{actividad.get_horario.hasta}}</td>
+                                            <td><span class="badge bg-success">${{actividad.mensualidad}}</span></td>
+                                        </tr>
+                                        {% endfor %}
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-center">Total:</td>
+                                            <td>
+                                                <span class="badge bg-success">${{integrante.get_mensualidad_movil}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
