@@ -1,0 +1,37 @@
+{% extends "socios/base.html" %}
+{% load static %}
+{% block title %} Cambiar contraseña {% endblock %}
+
+{% block content %}
+<div class="container card m-5 p-5">
+    <div class="card-header border">Cambiar contraseña</div>
+    <div class="card-body">
+    
+        <form method="POST" action="{% url 'socio-cambiar-clave' %}">
+            
+            <!-- Form Group (current password)-->
+            <div class="mb-3">
+                {{ form.old_password }}
+            </div>
+            <!-- Form Group (new password)-->
+            <div class="mb-3">
+                {{ form.new_password1 }}
+            </div>
+            <!-- Form Group (confirm password)-->
+            <div class="mb-3">
+                {{ form.new_password2 }}
+            </div>
+            {% for i in form.errors %}
+                {% if "old_password" == i %}
+                    <p style="color: red;">La contraseña anterior no coincide</p>
+                {% elif "new_password2" == i %}
+                    <p style="color: red;">La nueva contraseña no es válida</p>
+                {% endif %}
+            {% endfor %}
+
+            {%csrf_token%}
+            <button class="btn btn-primary" type="submit">Guardar</button>
+        </form>
+    </div>
+</div>
+{%endblock%}

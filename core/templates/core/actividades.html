@@ -16,7 +16,7 @@
                 <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
                 
                 <div class="card-body text-center">
-                  <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                  <a href="{% url 'core-actividades' %}/{{activity.name}}" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
                 </div>
               </div> 
           </div>
@@ -38,7 +38,7 @@
                 <img class="h-75" src="{% static activity.url_image %}" alt="Card image cap">
                 
                 <div class="card-body text-center">
-                  <a href="#" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
+                  <a href="{% url 'core-actividades' %}/{{activity.name}}" class="btn btn-primary">{% filter title %} {{activity.name}} {% endfilter %}</a>
                 </div>
               </div> 
         </div>

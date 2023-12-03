@@ -10,13 +10,13 @@
         <h4>Siguenos en</h4>
         <span>
         <a href="">
-          <img class="border border-white rounded-circle p-1 ml-2" src="{% static 'core/img/icons/insta2.png' %}" style="width: 30px;">
+          <i class="fab fa-twitter-square fa-lg border border-white rounded-circle p-2 ml-2" style="color: #4894db;"></i>  
         </a>
         <a href="">
-          <img class="border border-white rounded-circle p-1 ml-2" src="{% static 'core/img/icons/insta2.png' %}" style="width: 30px;">
+          <i class="fab fa-facebook-square fa-lg border border-white rounded-circle p-2 ml-2" style="color: #b3cfff;"></i>
         </a>
         <a href="">
-          <img class="border border-white rounded-circle p-1 ml-2" src="{% static 'core/img/icons/insta2.png' %}" style="width: 30px;">
+          <i class="fab fa-instagram fa-lg border border-white rounded-circle p-2 ml-2" style="color: #e92556;"></i>
         </a>
         </span>
       </div>
@@ -26,10 +26,10 @@
         
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
           <div class="navbar-nav row justify-content-center">
-            <a class="nav-item nav-link active mx-4" href="{% url 'index' %}">Inicio     <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active mx-4" href="{% url 'actividades' %}">Actividades <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active mx-4" href="#">Pricing  <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active mx-4" href="#">Disabled <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active mx-4" href="{% url 'index' %}">Inicio<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active mx-4" href="{% url 'core-actividades' %}">Actividades <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active mx-4" href="{% url 'core-institucional' %}">Institucional<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active mx-4" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
           </div>
         </div>
     </nav>

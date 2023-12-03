@@ -1,10 +1,55 @@
 {% extends "core/base.html" %}
+{% load static %}
 
 {% block title %} Institucional {% endblock %}
 
 {% block content %}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
-    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod quibusdam at cumque a veritatis blanditiis iusto ullam? Magnam, id! Quis molestias omnis ipsa alias fuga temporibus accusantium iusto explicabo odit.</h1>
+<section id="about-section" class="pt-5 pb-5" style="background-color: #E1F7E2;">
+    <div class="container wrapabout">
+        <div class="red"></div>
+        <div class="row">
+            <div class="col-lg-7 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
+                <div class="blockabout">
+                    <div class="blockabout-inner text-center text-sm-start">
+                        <div class="title-big pb-3 mb-3">
+                            <h3>Como empezó todo</h3>
+                        </div>
+                        <p class="description-p text-muted pe-0 pe-lg-0">
+                            El "Club Deportivo Aurora", ubicado en el corazón de la comunidad de Villa Esperanza, es una institución emblemática que ha desempeñado un papel vital en la vida de los residentes locales durante más de tres décadas. Fundado en 1989 por un grupo apasionado de vecinos comprometidos con el bienestar comunitario, el club ha evolucionado hasta convertirse en un centro vibrante de actividad y camaradería. Con su campo de fútbol meticulosamente cuidado, canchas de baloncesto, y modernas instalaciones, el Club Deportivo Aurora ha sido el epicentro de la actividad deportiva y recreativa en la zona.                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 mt-5 mt-lg-0">
+                <figure class="potoaboutwrap">
+                    <img class="w-100 rounded" src="{% static 'core/img/pueblo.jpg' %}" alt="potoabout" style="opacity: 0.8;" />
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="container wrapabout">
+        <div class="red"></div>
+        <div class="row">
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <figure class="potoaboutwrap">
+                    <img class="w-100 rounded" src="{% static 'core/img/cena.jpg' %}" alt="potoabout" style="opacity: 0.8;" />
+                </figure>
+            </div>
+            <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
+                <div class="blockabout">
+                    <div class="blockabout-inner text-center text-sm-start">
+                        <div class="title-big pb-3 mb-3">
+                            <h3>La dirección</h3>
+                        </div>
+                        <p class="description-p text-muted pe-0 pe-lg-0">
+                            La administración del "Club Deportivo Aurora" se distingue por su enfoque profesional y su dedicación a la mejora continua. Encabezando la institución se encuentra la Presidenta, la Sra. Marta Rodríguez, cuya visión y liderazgo han sido fundamentales para el crecimiento y éxito del club. Junto a ella, el Comité Ejecutivo, compuesto por expertos en diversas áreas como finanzas, marketing y deportes, trabaja de manera colaborativa para tomar decisiones estratégicas y garantizar la eficiencia operativa.                        </p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">El equipo administrativo, liderado por la Gerente General, Carolina Morales, juega un papel fundamental en el día a día del club. Desde la gestión de membresías hasta la coordinación de eventos especiales, el equipo trabaja incansablemente para mantener una experiencia sin contratiempos para los miembros. La oficina del club es un centro de información vital para los miembros, y su personal siempre está dispuesto a ayudar con cualquier pregunta o inquietud.</p>
+                    </div>
+                </div>
+            </div>
 
-    
-{% endblock %}
+        </div>
+    </div>
+</section>
+{%endblock%}
